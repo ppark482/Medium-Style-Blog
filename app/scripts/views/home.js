@@ -6,13 +6,13 @@
       'click .signUp' : 'signupForm'
     },
 
-    initialize: {
+    initialize: function() {
 
       this.render();
     },
 
     render: function () {
-      // this.$el.html($('#acctTemp').html());
+      this.$el.html($('#homeTemp').html());
 
 
     },
