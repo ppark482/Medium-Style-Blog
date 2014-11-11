@@ -23,18 +23,8 @@
   </head>
   <body>
 
-    <div class="hero-unit">
-      <h1>'Allo, 'Allo!</h1>
-      <p>You now have</p>
-      <ul>
-        <li>HTML5 Boilerplate</li>
-        <li>Normalize CSS</li>
-        <li>Sass</li>
-        <li>Modernizr</li>
-        <li>Bourbon & Neat</li>
-        <li>UnderscoreJS</li>
-      </ul>
-      <p>Don't forget to update your readme file!!</p>
+    <div class="wrapper">
+
     </div>
 
     <!-- build:js scripts/vendor.js -->
@@ -46,9 +36,11 @@
     <!-- endbuild -->
 
         <!-- build:js scripts/main.js -->
-
+        <script src="scripts/initial.js"></script>
+        <script src="scripts/models/comments_model.js"></script>
+        <script src="scripts/models/posts_model.js"></script>
         <script src="scripts/views/addPost.js"></script>
-        <script src="scripts/views/authorPost.js"></script>
+        <script src="scripts/views/authorPosts.js"></script>
         <script src="scripts/views/createAccount.js"></script>
         <script src="scripts/views/editDraft.js"></script>
         <script src="scripts/views/home.js"></script>
@@ -56,7 +48,9 @@
         <script src="scripts/views/myacct.js"></script>
         <script src="scripts/views/singlePost.js"></script>
         <script src="scripts/views/tagsPost.js"></script>
+        <script src="scripts/collections/posts_collection.js"></script>
+        <script src="scripts/app_router.js"></script>
         <script src="scripts/main.js"></script>
         <!-- endbuild -->
-</body>
+  </body>
 </html>
