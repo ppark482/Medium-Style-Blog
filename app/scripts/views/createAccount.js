@@ -2,16 +2,19 @@
 
   App.Views.CreateAcct = Parse.View.extend({
 
+    el: '#middleRegion',
+
     event: {},
 
 
     initialize: function() {
-      this.render;
-
+      this.render();
     },
 
-    render: function(){
-    
+    render: function() {
+      // Renders Create Acct Form
+      var createAcct = $('#acctTemp').html();
+      this.$el.html(createAcct);
     }
 
 
