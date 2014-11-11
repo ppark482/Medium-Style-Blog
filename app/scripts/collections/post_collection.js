@@ -1,1 +1,4 @@
-console.log('works');
+(function (
+
+  
+) {}());
