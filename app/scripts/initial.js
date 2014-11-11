@@ -1,4 +1,3 @@
-
 window.App = {};
         App.Models = {};
         App.Collections = {};
