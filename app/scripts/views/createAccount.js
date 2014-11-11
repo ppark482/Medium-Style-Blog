@@ -1,7 +1,8 @@
 (function() {
 
   App.Views.CreateAcct = Parse.View.extend({
-    el: '.middleRegion',
+
+    el: '#middleRegion',
 
     event: {},
 
@@ -12,12 +13,9 @@
     },
 
     render: function(){
-      //  this.$el.empty();
-      //  this.$el.html(
-
       var acct = $('#acctTemp').html();
       var renderAcct = _.template(acct);
-      this.$el.html(acct);
+      $('#middleRegion').html(this.el);
     }
 
 
