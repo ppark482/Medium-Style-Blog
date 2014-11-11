@@ -1,24 +1,27 @@
 (function () {
 
+  /* Renders Home View */
   App.Views.Home = Parse.View.extend({
+
+    el: "#upperRegion",
 
     events: {
       'click .signUp' : 'signupForm'
     },
 
-    initialize: {
-
+    initialize: function () {
       this.render();
     },
 
     render: function () {
-      // this.$el.html($('#acctTemp').html());
-
-
+      // Renders Nav Bar
+      var navbar = $('#homeTemp').html();
+      this.$el.html(navbar);
     },
 
     signupForm: function() {
-
+      // Instantiates Create Acct Form
+      new App.Views.CreateAcct();
     }
 
 

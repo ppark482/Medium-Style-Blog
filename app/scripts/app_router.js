@@ -18,6 +18,7 @@
      },
 
      home: function() {
+       // Renders Home View
        new App.Views.Home();
      }
 
