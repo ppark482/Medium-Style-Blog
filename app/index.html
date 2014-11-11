@@ -26,13 +26,8 @@
     <div id="wrapper">
 
       <div id="upperRegion"> <!-- start upperRegion -->
+      </div> <!--end of upperRegion-->
 
-        <div class="navBar"> <!-- start navBar -->
-          <a href="#">My Account</a>
-          <button class="signUp">Sign Up</button>
-          <button class="login">Login</button>
-        </div> <!-- end of navBar -->
-      </div> <!--end of top region-->
 
       <div id="middleRegion">
 
@@ -41,7 +36,15 @@
       <div id="lowerRegion">
       </div> <!--end of lowerRegion-->
 
-    </div> <!--end of wrapper-->
+  </div> <!--end of wrapper-->
+
+    <script type="text/template" id="homeTemp">
+      <div class="navBar"> <!-- start navBar -->
+        <a href="#">My Account</a>
+        <button class="signUp">Sign Up</button>
+        <button class="login">Login</button>
+      </div> <!-- end of navBar -->
+    </script>
 
     <script type="text/template" id="acctTemp">
       <div class="createAcct"> <!-- start create acct -->
@@ -52,7 +55,7 @@
         </form>
       </div> <!-- end of create acct -->
     </script>
-    
+
     <!-- build:js scripts/vendor.js -->
     <!-- bower:js -->
     <script src="../bower_components/jquery/dist/jquery.js"></script>
