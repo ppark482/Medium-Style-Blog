@@ -22,6 +22,7 @@
     <!-- endbuild -->
   </head>
   <body>
+
     <div id="wrapper">
       <div id="upperRegion"> <!-- start upperRegion -->
       </div> <!--end of upperRegion-->
@@ -53,8 +54,9 @@
     <script type="text/template" id="loginTemp"> <!-- Create Login Template -->
       <div> <!-- start login form -->
         <form class="loginForm">
+          <h2>Login to your account:</h2>
           <input id="loginUsername" placeholder="Enter User Name">
-          <input id="loginPassword" type="password" placeholder="Create Password">
+          <input id="loginPassword" type="password" placeholder="Enter Password">
           <button id="loginGo">Login</button>
         </form>
       </div> <!-- end of create acct -->
@@ -70,13 +72,14 @@
 
         <!-- build:js scripts/main.js -->
         <script src="scripts/initial.js"></script>
+        <script src="scripts/views/home.js"></script>
         <script src="scripts/models/post_model.js"></script>
         <script src="scripts/models/comments_model.js"></script>
         <script src="scripts/views/addPost.js"></script>
         <script src="scripts/views/authorPosts.js"></script>
         <script src="scripts/views/createAccount.js"></script>
         <script src="scripts/views/editDraft.js"></script>
-        <script src="scripts/views/home.js"></script>
+        <script src="scripts/views/navBar.js"></script>
         <script src="scripts/views/login.js"></script>
         <script src="scripts/views/myacct.js"></script>
         <script src="scripts/views/singlePost.js"></script>

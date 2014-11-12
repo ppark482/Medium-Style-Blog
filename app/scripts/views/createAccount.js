@@ -6,39 +6,40 @@
 
     events: {
       'click button#makeAcct' : 'accountCreation'
-    },
+    }, // end of events
 
-    initialize: function() {
+    initialize                : function() {
       this.render();
-    },
+    }, // end of initialize
 
-    render: function() {
+    render                    : function() {
+      new App.Views.NavBar();
       // Renders Create Acct Form
       var createAcct = $('#acctTemp').html();
       this.$el.html(createAcct);
-    },
+    }, // end of render
 
-    accountCreation: function(e) {
+    accountCreation           : function(e) { // creating new account
       e.preventDefault();
-      var username = $('#createUsername').val();
-      var password = $('#createPassword').val();
-
-      var user = new Parse.User();
-      user.set('username', username);
-      user.set('password', password);
+      // New User Creation
+      // Send New User to Server
+      var user = new Parse.User({
+        username: $('#createUsername').val(),
+        password: $('#createPassword').val()
+      });
       user.signUp(null, {
         success: function(user) {
           console.log('Account created');
+          $('#middleRegion').empty();
           App.router.navigate('', { trigger: true });
         },
         error: function(user, error) {
-          alert('error');
+          alert('Error');
+          App.router.navigate('', { trigger: true });
         }
-      }) // end of user.signup
-
+      }); // end of user.signup
     } // end of accountCreation
 
-
-  });
+  }); // end of view
 
 }()); // end of IIF
