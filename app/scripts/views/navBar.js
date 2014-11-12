@@ -7,7 +7,8 @@
 
     events: {
       'click .signUp' : 'signupForm',
-      'click .login'  : 'loginForm'
+      'click .login'  : 'loginForm',
+      'click .logout' : 'logout'
     }, // end of events
 
     initialize        : function () {
@@ -30,7 +31,14 @@
       // On click to login
       // Routes to 'login' page
       App.router.navigate('login', { trigger: true });
-    } // end of loginForm
+    }, // end of loginForm
+
+    logout            : function() {
+        Parse.User.logOut();
+        App.user = null;
+        App.router.navigate('', {trigger : true} );
+        console.log('logged out');
+      }
 
   }); // end of view
 

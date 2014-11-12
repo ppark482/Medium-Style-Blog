@@ -3,7 +3,6 @@
   App.Routers.AppRouter = Parse.Router.extend({
 
     initialize: function() {
-      Parse.history.start();
     }, // end of initialize
 
     routes: {

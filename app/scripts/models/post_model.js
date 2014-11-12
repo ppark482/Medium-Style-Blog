@@ -4,6 +4,8 @@
 
     className: 'Post',
 
+    idAttribute: 'objectId',
+
     defaults: {
       title: '',
       content: '',

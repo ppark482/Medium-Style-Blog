@@ -2,7 +2,6 @@
 
   App.Views.Home = Parse.View.extend({
 
-
     el: "#upperRegion",
 
     events: {
@@ -10,17 +9,13 @@
       'click .login'  : 'login'
     },
 
-
     initialize        : function () {
-
       this.render();
     },
 
     render            : function () {
-
       // Renders Nav Bar
-      var navbar = $('#homeTemp').html();
-      this.$el.html(navbar);
+      new App.Views.NavBar();
     },
 
     signupForm        : function () {
