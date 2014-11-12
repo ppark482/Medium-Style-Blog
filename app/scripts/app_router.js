@@ -9,6 +9,7 @@
       ''              : 'home',
       'create'        : 'createAccount',
       'login'         : 'login',
+      'myaccount'     : 'myAccount'
     }, // end of routes
 
     home              : function () {
@@ -17,14 +18,19 @@
     }, // end of home
 
     createAccount     : function () {
-       // Instantiates Create Acct Form
+       // Instantiate Create Acct Form
        new App.Views.CreateAcct();
     }, // end of createAccount
 
     login             : function () {
-       // Instantiates Login View
+       // Instantiate Login View
        new App.Views.Login();
-    } // end of login
+    }, // end of login
+
+    myAccount         : function () {
+      // Instantiate My Account View
+      new App.Views.MyAcct();
+    }
 
    }); // end of router
 }()); // end of IIF

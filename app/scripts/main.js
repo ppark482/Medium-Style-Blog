@@ -6,7 +6,7 @@ Parse.initialize("b9ihleuYJm7Z20BGiIeVfE3XHmgNZoGP0P6tWs7A", "c3b6HWtmmYpCntKDKl
   // Create object to store current user
   App.user = Parse.User.current();
   // Creates instance of collection
-  // App.posts = new App.Collections.Posts();
+  App.posts = new App.Collections.Posts();
 
   // App.posts.fetch().done( function () {
     // Instantiate the router
