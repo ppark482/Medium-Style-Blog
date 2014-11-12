@@ -66,9 +66,21 @@
     <script type="text/template" id="myAccountTemp"> <!-- Create My Account Template -->
       <div>
         <h2>Author Information</h2>
-        <button>Add Post</button>
+        <button id="addPost">Add Post</button>
         <ul id="yourPosts"></ul>
       </div>
+    </script>
+
+    <script type="text/template" id="addPostTemp"> <!-- Create Add Post Template -->
+      <div>
+        <h2>Add New Post</h2>
+        <input type="text" id="addTitle" placeholder="Add A Title">
+        <textarea type="text" id="addContent" placeholder="Start Typing"></textarea>
+        <input type="text" id="addTag" placeholder="Add A Tag">
+        <button>Save As Draft</button>
+        <button>Publish</button>
+      </div>
+
     </script>
 
     <!-- build:js scripts/vendor.js -->

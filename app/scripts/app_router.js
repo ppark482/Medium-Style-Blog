@@ -9,7 +9,8 @@
       ''              : 'home',
       'create'        : 'createAccount',
       'login'         : 'login',
-      'myaccount'     : 'myAccount'
+      'myaccount'     : 'myAccount',
+      'addpost'       : 'addpost'
     }, // end of routes
 
     home              : function () {
@@ -30,6 +31,11 @@
     myAccount         : function () {
       // Instantiate My Account View
       new App.Views.MyAcct();
+    },
+
+    addpost           : function () {
+      // Instantiate Add Post View
+      new App.Views.AddPost();
     }
 
    }); // end of router
