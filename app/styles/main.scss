@@ -3,11 +3,30 @@
 @import '../../bower_components/neat/app/assets/stylesheets/neat';
 
 // Custom Styles
-body {
-  background: #fafafa;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  color: #333;
+
+
+/*...font variables...*/
+$font1: 'Oswald', sans-serif;
+$font2: 'Open Sans', sans-serif;
+
+/*...color variables...*/
+$blueBtn: rgb(2, 135, 255);
+
+
+/*...Style extenstions...*/
+.upperStyle{
+  margin-left:30px;
+  margin-bottom:20px;
+  margin-top:20px;
 }
+.middleStyle{
+  display:block;
+  margin-bottom:10px;
+  margin-left:10px;
+}
+
+
+/*...scss...*/
 
 #wrapper{
   @include outer-container;
@@ -17,13 +36,14 @@ body {
 #upperRegion{
   @include outer-container;
   .acctLink{
-  @include span-columns(3);
+  @include span-columns(2);
+  @extend .upperStyle;
   }
   .signUp{
-  @include span-columns(3);
+  @include span-columns(2);
   }
   .login{
-  @include span-columns(3);
+  @include span-columns(2);
   }
   .logout{
   @include span-columns(3);
@@ -38,19 +58,22 @@ body {
   .createForm{
 
     h2{
-
+      @extend .middleStyle;
     }
 
     #createUsername{
+       @extend .middleStyle;
 
     }
 
     #createPassword{
+      @extend .middleStyle;
+
 
     }
 
     #makeAcct{
-
+      @extend .middleStyle;
     }
 
   }/*end of form*/
