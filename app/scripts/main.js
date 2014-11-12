@@ -7,5 +7,7 @@ Parse.initialize("b9ihleuYJm7Z20BGiIeVfE3XHmgNZoGP0P6tWs7A", "c3b6HWtmmYpCntKDKl
 
   App.router = new App.Routers.AppRouter();
 
+  
+
 
 }());

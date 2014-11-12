@@ -1,10 +1,5 @@
 (function () {
 
-<<<<<<< HEAD
-
-
-}());
-=======
   App.Views.Login = Parse.View.extend({
 
     el: '#middleRegion',
@@ -45,4 +40,3 @@
   }); // end of view
 
 }()); // end of IIF
->>>>>>> d850ded5b09cc749336c9f174cef4323d6a7132c
