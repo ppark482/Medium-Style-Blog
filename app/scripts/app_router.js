@@ -18,6 +18,9 @@
        new App.Views.Home();
      }
 
+     createAccount: function() {
+       
+     }
 });
 
 
