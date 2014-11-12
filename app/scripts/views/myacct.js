@@ -10,7 +10,9 @@
 
     template                : _.template($('#myAccountTemp').html()),
 
-    initialize              : function () {
+    initialize              : function (options) {
+      // Retrieves passed in parameter from router
+      this.options = options;
       this.render();
     }, // end of initialize
 
@@ -18,7 +20,7 @@
       // Renders Nav Bar
       new App.Views.NavBar();
       // Render author page onto page
-      this.$el.html(this.template);
+      this.$el.html(this.template(this.options.toJSON()));
     },
 
     addPost                 : function () {

@@ -30,7 +30,8 @@
 
     myAccount         : function () {
       // Instantiate My Account View
-      new App.Views.MyAcct();
+      console.log(App.user);
+      new App.Views.MyAcct(App.user);
     },
 
     addpost           : function () {
