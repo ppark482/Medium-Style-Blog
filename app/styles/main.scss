@@ -16,7 +16,6 @@ body {
 
 #upperRegion{
   @include outer-container;
-  background-color:blue;
   .acctLink{
   @include span-columns(3);
   }
@@ -35,9 +34,8 @@ body {
 
 #middleRegion{
   @include outer-container;
-  background-color:red;
+
   .createForm{
-    background-color:red;
 
     h2{
 
