@@ -6,7 +6,8 @@
     el: "#upperRegion",
 
     events: {
-      'click .signUp' : 'signupForm'
+      'click .signUp' : 'signupForm',
+      'click .login'  : 'login'
     },
 
 
@@ -20,14 +21,16 @@
       // Renders Nav Bar
       var navbar = $('#homeTemp').html();
       this.$el.html(navbar);
-
     },
 
-    signupForm        : function() {
+    signupForm        : function () {
       // Instantiates Create Acct Form
       new App.Views.CreateAcct();
+    },
 
-
+    login             : function () {
+      // Instantiate Login Form
+      new App.Views.Login();
     }
 
   }); // end of view
