@@ -42,9 +42,20 @@
     <script type="text/template" id="acctTemp"> <!-- Create New Account Template -->
       <div class="createAcct"> <!-- start create acct -->
         <form class="createForm">
-          <input class="createUsername" placeholder="Create User Name">
-          <input class ="createPassword" placeholder="Create Password">
-          <button>Create Account</button>
+          <h2>Create a new account:</h2>
+          <input id="createUsername" placeholder="Create User Name">
+          <input id="createPassword" type="password" placeholder="Create Password">
+          <button id="makeAcct">Create Account</button>
+        </form>
+      </div> <!-- end of create acct -->
+    </script>
+
+    <script type="text/template" id="loginTemp"> <!-- Create Login Template -->
+      <div> <!-- start login form -->
+        <form class="loginForm">
+          <input id="loginUsername" placeholder="Enter User Name">
+          <input id="loginPassword" type="password" placeholder="Create Password">
+          <button id="loginGo">Login</button>
         </form>
       </div> <!-- end of create acct -->
     </script>
@@ -61,7 +72,6 @@
         <script src="scripts/initial.js"></script>
         <script src="scripts/models/post_model.js"></script>
         <script src="scripts/models/comments_model.js"></script>
-        <script src="scripts/models/author_model.js"></script>
         <script src="scripts/views/addPost.js"></script>
         <script src="scripts/views/authorPosts.js"></script>
         <script src="scripts/views/createAccount.js"></script>
