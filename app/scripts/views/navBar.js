@@ -3,7 +3,7 @@
   /* Renders Home View */
   App.Views.NavBar = Parse.View.extend({
 
-    el: "#upperRegion",
+    el: '#upperRegion',
 
     events: {
       'click .signUp' : 'signupForm',

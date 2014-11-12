@@ -18,6 +18,6 @@
 
     }
 
-  });
+  }); // end of model
 
-}());
+}()); // end of IIF

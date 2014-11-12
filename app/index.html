@@ -34,7 +34,7 @@
 
     <script type="text/template" id="homeTemp"> <!-- Nav Bar Template -->
       <div class="navBar"> <!-- start navBar -->
-        <a href="#">My Account</a>
+        <a href="#/myaccount">My Account</a>
         <button class="signUp">Sign Up</button>
         <button class="login">Login</button>
         <button class='logout'>Log Out</button>
@@ -61,6 +61,14 @@
           <button id="loginGo">Login</button>
         </form>
       </div> <!-- end of create acct -->
+    </script>
+
+    <script type="text/template" id="myAccountTemp"> <!-- Create My Account Template -->
+      <div>
+        <h2>Author Information</h2>
+        <button>Add Post</button>
+        <ul id="yourPosts"></ul>
+      </div>
     </script>
 
     <!-- build:js scripts/vendor.js -->
