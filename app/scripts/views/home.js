@@ -1,7 +1,7 @@
-(function () {
+(function(){
 
-  /* Renders Home View */
   App.Views.Home = Parse.View.extend({
+
 
     el: "#upperRegion",
 
@@ -26,11 +26,10 @@
     signupForm: function() {
       // Instantiates Create Acct Form
       new App.Views.CreateAcct();
+
+  
     }
 
+  }); // end of view
 
-  });
-
-
-
-}());
+}()); // end of IIF
