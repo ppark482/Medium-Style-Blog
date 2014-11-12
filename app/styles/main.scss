@@ -35,8 +35,29 @@ body {
 
 #middleRegion{
   @include outer-container;
+  background-color:red;
+  .createForm{
+    background-color:red;
 
-}
+    .heading{
+
+    }
+
+    #createUsername{
+
+    }
+
+    #createPassword{
+
+    }
+
+    #makeAcct{
+
+    }
+
+  }/*end of form*/
+  
+}/*end of middle Region*/
 
 #lowerRegion{
   @include outer-container;
