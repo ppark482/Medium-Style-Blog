@@ -10,12 +10,12 @@
     },
 
 
-    initialize: function () {
+    initialize        : function () {
 
       this.render();
     },
 
-    render: function () {
+    render            : function () {
 
       // Renders Nav Bar
       var navbar = $('#homeTemp').html();
@@ -23,11 +23,11 @@
 
     },
 
-    signupForm: function() {
+    signupForm        : function() {
       // Instantiates Create Acct Form
       new App.Views.CreateAcct();
 
-  
+
     }
 
   }); // end of view
