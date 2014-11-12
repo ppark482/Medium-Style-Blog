@@ -5,14 +5,14 @@
     el: '#middleRegion',
 
     events: {
-      'click #addPost' : 'addPost'
+      'click #addPost'      : 'addPost'
     }, // end of events
 
-    initialize: function () {
+    initialize              : function () {
       this.render();
     }, // end of initialize
 
-    render: function () {
+    render                  : function () {
       // Renders Nav Bar
       new App.Views.NavBar();
       // Render author page onto page
@@ -20,7 +20,7 @@
       this.$el.html(author);
     },
 
-    addPost: function () {
+    addPost                 : function () {
       // Navigate to Add Post
       App.router.navigate('addpost', { trigger: true});
     }

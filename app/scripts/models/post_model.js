@@ -11,7 +11,6 @@
       content: '',
       tag: '',
       author: ''
-
     },
 
     initialize: function () {

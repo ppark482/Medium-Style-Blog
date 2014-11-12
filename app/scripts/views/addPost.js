@@ -4,11 +4,15 @@
 
     el: '#middleRegion',
 
-    initialize: function () {
+    events: {
+      
+    },
+
+    initialize      : function () {
       this.render();
     },
 
-    render: function () {
+    render          : function () {
       // Renders Nav Bar
       new App.Views.NavBar();
       // Render Add Post Page

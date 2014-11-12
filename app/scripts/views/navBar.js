@@ -3,7 +3,9 @@
   /* Renders Home View */
   App.Views.NavBar = Parse.View.extend({
 
-    el: '#upperRegion',
+    el                : '#upperRegion',
+
+    template          : _.template($('#navTemp').html()),
 
     events: {
       'click .signUp' : 'signupForm',
@@ -17,8 +19,7 @@
 
     render            : function () {
       // Renders Nav Bar
-      var navbar = $('#homeTemp').html();
-      this.$el.html(navbar);
+      this.$el.html(this.template);
     }, // end of render
 
     signupForm        : function() {

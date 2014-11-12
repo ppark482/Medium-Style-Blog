@@ -19,7 +19,7 @@
       this.$el.html(createAcct);
     }, // end of render
 
-    accountCreation           : function(e) { // creating new account
+    accountCreation           : function(e) {
       e.preventDefault();
       // New User Creation
       // Send New User to Server
