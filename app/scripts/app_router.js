@@ -9,13 +9,9 @@
   },
 
     routes: {
-      '':'home',
-      'signup':'createAcct'
-    },
-     createAcct: function() {
-       var a= new App.Views.CreateAcct();
-       console.log(a);
-     },
+      '' : 'home',
+      'create' : 'createAccount'
+    }, // end of routes
 
      home: function() {
        // Renders Home View
