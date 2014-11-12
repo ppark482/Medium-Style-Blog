@@ -9,15 +9,36 @@ body {
   color: #333;
 }
 
-.bar {
+#wrapper{
+  @include outer-container;
+
 }
 
-.create {
+#upperRegion{
+  @include outer-container;
+  background-color:blue;
+  .acctLink{
+  @include span-columns(3);
+  }
+  .signUp{
+  @include span-columns(3);
+  }
+  .login{
+  @include span-columns(3);
+  }
+  .logout{
+  @include span-columns(3);
+  }
+
+
 }
 
-.login {
+#middleRegion{
+  @include outer-container;
+
 }
 
-.createUsername {
+#lowerRegion{
+  @include outer-container;
 
 }
