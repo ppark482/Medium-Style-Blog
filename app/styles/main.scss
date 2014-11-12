@@ -9,15 +9,57 @@ body {
   color: #333;
 }
 
-.bar {
+#wrapper{
+  @include outer-container;
+
 }
 
-.create {
+#upperRegion{
+  @include outer-container;
+  background-color:blue;
+  .acctLink{
+  @include span-columns(3);
+  }
+  .signUp{
+  @include span-columns(3);
+  }
+  .login{
+  @include span-columns(3);
+  }
+  .logout{
+  @include span-columns(3);
+  }
+
+
 }
 
-.login {
-}
+#middleRegion{
+  @include outer-container;
+  background-color:red;
+  .createForm{
+    background-color:red;
 
-.createUsername {
+    h2{
+
+    }
+
+    #createUsername{
+
+    }
+
+    #createPassword{
+
+    }
+
+    #makeAcct{
+
+    }
+
+  }/*end of form*/
+
+}/*end of middle Region*/
+
+#lowerRegion{
+  @include outer-container;
 
 }
