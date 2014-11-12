@@ -8,6 +8,8 @@
       'click #addPost'      : 'addPost'
     }, // end of events
 
+    template                : _.template($('#myAccountTemp').html()),
+
     initialize              : function () {
       this.render();
     }, // end of initialize
@@ -16,8 +18,7 @@
       // Renders Nav Bar
       new App.Views.NavBar();
       // Render author page onto page
-      var author = $('#myAccountTemp').html();
-      this.$el.html(author);
+      this.$el.html(this.template);
     },
 
     addPost                 : function () {
