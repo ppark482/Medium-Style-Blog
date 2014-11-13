@@ -16,7 +16,7 @@
 
     home                : function () {
        // Renders Home View
-       new App.Views.Home();
+       new App.Views.Home(App.posts);
     }, // end of home
 
     createAccount       : function () {
@@ -31,7 +31,6 @@
 
     myAccount           : function () {
       // Instantiate My Account View
-      console.log(App.user);
       new App.Views.MyAcct(App.user);
     },
 
