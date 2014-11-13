@@ -29,8 +29,12 @@
         tag: $('#addTag').val(),
         user: App.user
       });
-      // Sets access privilege to current user
-      p.setACL(new Parse.ACL(App.user));
+      var access = new Parse.ACL(App.user);
+      // Set read access to anyone
+      access.setPublicReadAccess(true);
+      // Set access privilege to current user
+      p.setACL(access);
+
       // Saves post to collection
       p.save(null, {
         success: function() {

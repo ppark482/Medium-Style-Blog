@@ -42,7 +42,7 @@
 
     singlePost          : function () {
       // Instantiate Single Post View
-      
+
     }
 
    }); // end of router
