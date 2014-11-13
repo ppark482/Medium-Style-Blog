@@ -11,14 +11,22 @@
     },
 
     initialize        : function(options) {
-      this.options=options;
+      this.options.collection = options;
+      App.posts.on('sync', this, this);
       this.render();
     }, // end of initialize
 
     render            : function(options) {
 
-      this.$el.html(this.template(this.options));
-    } // end of render
+      var self = this;
+      var posts = this.options.models;
+      _.each(posts, function(x) {
+
+        // Renders All Posts List
+        self.$el.append(self.template(x.toJSON()));
+
+    });
+  } // end of render
   });
 
 }());
