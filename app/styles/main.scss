@@ -1,0 +1,98 @@
+ // Bourbon & Neat
+@import '../../bower_components/bourbon/dist/bourbon';
+@import '../../bower_components/neat/app/assets/stylesheets/neat';
+@import 'addpost.scss';
+
+// Custom Fonts
+$headerfont: 'Archivo Narrow', sans-serif;
+$textfont: 'Inconsolata';
+$border: 1px solid HSLA(210, 12%, 17%, 1);
+
+// Custom Styles
+body {
+  background: #fafafa;
+  color: #333;
+}
+
+p {
+  font-family: $textfont;
+}
+
+h2, button, a,  {
+  font-family: $headerfont;
+}
+
+button {
+  padding: 15px;
+}
+
+input {
+  height: 40px;
+}
+
+form {
+  width: 50%;
+  padding: 15px;
+  margin: 0 auto;
+  border: 1px solid HSLA(210, 12%, 17%, 1);
+  @include outer-container;
+}
+
+#wrapper{
+  @include outer-container;
+}
+
+#upperRegion {
+  @include outer-container;
+  width: 100%;
+  padding: 15px;
+  border-bottom: 1px solid HSLA(210, 12%, 17%, 1);
+
+  .acctLink {
+  @include span-columns(3);
+  }
+
+  .signUp {
+  @include span-columns(3);
+  }
+
+  .login {
+  @include span-columns(3);
+  }
+
+  .logout {
+  @include span-columns(3);
+  }
+
+
+}
+
+#middleRegion {
+  @include outer-container;
+
+  .createForm {
+
+    h2 {
+
+    }
+
+    #createUsername {
+
+    }
+
+    #createPassword {
+
+    }
+
+    #makeAcct {
+
+    }
+
+  }/* end of form */
+
+}/* end of middle Region */
+
+#lowerRegion {
+  @include outer-container;
+
+}
