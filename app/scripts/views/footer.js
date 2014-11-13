@@ -8,7 +8,7 @@
 
       events: {
         'click .author' : 'authorposts',
-        'click .tag'  : 'singlepost'
+        'click .tag'    : 'tagspost'
       },
 
       initialize        : function () {
@@ -22,16 +22,17 @@
       }, // end of render
 
 
-      singlepost        : function () {
-        // Instantiates Single Posts
-      App.router.navigate('singleposts', { trigger: true });
-
-      },
-
       authorposts        : function () {
         // Instantiates Create Acct Form
       App.router.navigate('authorposts', { trigger:true });
-      }
+      },
+
+      tagspost        : function () {
+        // Instantiates Single Posts
+      App.router.navigate('tagspost', { trigger: true });
+
+      },
+
   });
 
 }());

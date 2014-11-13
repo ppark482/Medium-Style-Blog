@@ -12,7 +12,7 @@
       'myaccount'     : 'myAccount',
       'addpost'       : 'addpost',
       'authorposts'   : 'authorposts',
-      'singleposts'   : 'singleposts'
+      'tagspost'      : 'tagspost'
     }, // end of routes
 
     home              : function () {
@@ -49,8 +49,8 @@
       new App.Views.AuthorPosts();
     },
 
-    singleposts        : function() {
-      new App.Views.SinglePost();
+    tagspost        : function() {
+      new App.Views.TagsPost();
     }
 
 

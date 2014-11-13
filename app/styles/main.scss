@@ -25,6 +25,24 @@ $blueBtn: rgb(2, 135, 255);
   margin-left:10px;
 }
 
+.lowerStyle{
+  float:left;
+  margin-top:20px;
+  margin-bottom:20px;
+  border:solid;
+  width:300px;
+  border-radius:20px;
+}
+
+.titleStyle{
+  font-size:30px;
+  margin-right:20px;
+  margin-left:-30px;
+  text-decoration:underline;
+
+}
+
+
 
 /*...scss...*/
 
@@ -50,10 +68,7 @@ $blueBtn: rgb(2, 135, 255);
   }
 
 
-}
-
-.authorsList{border:solid;}
-.tagsList{border:solid;}
+}/*end of Upper Region*/
 
 #middleRegion{
   @include outer-container;
@@ -85,5 +100,19 @@ $blueBtn: rgb(2, 135, 255);
 
 #lowerRegion{
   @include outer-container;
+    border:solid;
+    .authorsList{
+      @extend .lowerStyle;
+      .listTitle{
+        @extend .titleStyle;
+        }
+      }/*end of authors list*/
 
-}
+    .tagsList{
+      @extend .lowerStyle;
+      .listTitle{
+        @extend .titleStyle;
+        }
+      }/*end of tags list*/
+
+}/*end of lower region*/
