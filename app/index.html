@@ -87,7 +87,7 @@
     <script type="text/template" id="allPostsTemp"> <!-- Create All Posts for Homepage -->
       <li class="postCard" id="<%= objectId %>">
         <a href="#/single/<%= objectId %>">
-          <div class="postHeader"><%= title %> by</div>
+          <div class="postHeader"><%= title %> by <% console.log(user) %></div>
           <span><%= tag %></span>
         </a>
       </li>
@@ -158,6 +158,7 @@
         <script src="scripts/views/singlePost.js"></script>
         <script src="scripts/views/tagsPost.js"></script>
         <script src="scripts/collections/posts_collection.js"></script>
+        <script src="scripts/collections/users_collection.js"></script>
         <script src="scripts/app_router.js"></script>
         <script src="scripts/main.js"></script>
         <!-- endbuild -->
