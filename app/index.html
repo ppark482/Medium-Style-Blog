@@ -65,6 +65,15 @@
       </div> <!-- end of create acct -->
     </script>
 
+    <script type="text/template" id="allPostsTemp"> <!-- Create All Posts for Homepage -->
+      <li class="postCard" id="<%= objectId %>">
+        <a href="#/single/<%= objectId %>">
+          <div class="postHeader"><%= title %> by <%= username %></div>
+          <span><%= tag %></span>
+        </a>
+      </li>
+    </script>
+
     <script type="text/template" id="myAccountTemp"> <!-- Create My Account Template -->
       <div>
         <h2><%= username %>'s Information</h2>
@@ -76,11 +85,15 @@
     <script type="text/template" id="addPostTemp"> <!-- Create Add Post Template -->
       <div id="addNewPost">
         <h2>Add New Post</h2>
-        <input type="text" id="addTitle" placeholder="Add A Title">
-        <textarea type="text" id="addContent" placeholder="Start Typing"></textarea>
-        <input type="text" id="addTag" placeholder="Add A Tag">
-        <button>Save As Draft</button>
-        <button>Publish</button>
+          <input type="text" id="addTitle" placeholder="Add A Title">
+          <textarea type="text" id="addContent" placeholder="Start Typing"></textarea>
+          <select name="select" id="addTag">
+            <option value="tag1" selected>Tag 1</option>
+            <option value="tag1">Tag 2</option>
+            <option value="tag1">Tag 3</option>
+          </select>
+          <button id="asDraft">Save As Draft</button>
+          <button id="publish">Publish</button>
       </div>
     </script>
 
@@ -98,6 +111,7 @@
         <script src="scripts/models/post_model.js"></script>
         <script src="scripts/models/comments_model.js"></script>
         <script src="scripts/views/addPost.js"></script>
+        <script src="scripts/views/allPosts.js"></script>
         <script src="scripts/views/authorPosts.js"></script>
         <script src="scripts/views/createAccount.js"></script>
         <script src="scripts/views/editDraft.js"></script>

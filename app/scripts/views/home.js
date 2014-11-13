@@ -16,6 +16,8 @@
     render            : function () {
       // Renders Nav Bar
       new App.Views.NavBar();
+      // Render All Posts View
+      new App.Views.AllPosts();
     },
 
     signupForm        : function () {
