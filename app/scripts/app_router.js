@@ -18,12 +18,7 @@
 
     home                : function () {
        // Renders Home View
-
-       new App.Views.Home();
-       new App.Views.Footer();
-       new App.Views.AuthorPosts();
-       new App.Views.SinglePost();
-       new App.Views.Home(App.posts);
+       new App.Views.Home({collection: App.posts, user: App.user});
     }, // end of home
 
     createAccount       : function () {
@@ -46,21 +41,20 @@
       new App.Views.AddPost();
     },
 
-    authorposts        : function () {
-      // Instantiates Create Author Post
-      new App.Views.AuthorPosts();
-    },
+    authorposts         : function () {
 
-    tagspost        : function() {
-      new App.Views.TagsPost();
+      // Instantiates Create Author Post
+      // new App.Views.AuthorPosts();
     },
 
     singlePost          : function () {
       // Instantiate Single Post View
+    },
 
+    tagspost            : function() {
+      // Instantiates Create Tag Post View
+      // new App.Views.TagsPost();
     }
-
-
 
    }); // end of router
 }()); // end of IIF

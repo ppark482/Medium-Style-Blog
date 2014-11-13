@@ -9,15 +9,21 @@
       'click .login'  : 'login'
     },
 
-    initialize        : function () {
-      this.render();
+
+    initialize        : function (options) {
+      this.options = options;
+      this.render(options);
     },
 
-    render            : function () {
+    render            : function (options) {
       // Renders Nav Bar
       new App.Views.NavBar();
       // Render All Posts View
-      new App.Views.AllPosts();
+      new App.Views.AllPosts(this.options.collection);
+      // Render Author Posts in Footer
+      new App.Views.AuthorPosts();
+      // Render Footer
+      new App.Views.Footer(this.options.user);
     },
 
     signupForm        : function () {
