@@ -13,14 +13,12 @@
     }, // end of initialize
 
     render: function (options) {
-      var self = this
+      var self = this;
       var posts = this.options.models;
       _.each(posts, function(x) {
         // Renders All Posts List
         self.$el.append(self.template(x.toJSON()));
       });
-
-
     }
 
   }); // end of view

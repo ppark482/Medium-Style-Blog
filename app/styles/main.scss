@@ -21,6 +21,9 @@ p {
 h2, button, a,  {
   font-family: $headerfont;
 }
+li {
+  list-style-type: none;
+}
 
 button {
   padding: 15px;
