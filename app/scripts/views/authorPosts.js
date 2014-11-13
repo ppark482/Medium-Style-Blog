@@ -2,16 +2,31 @@
 
   App.Views.AuthorPosts = Parse.View.extend({
 
-    initialize                : function() {
+    el                : '#middleRegion',
+
+    template          : _.template($('#authorPostTemp').html()),
+
+    events: {
+
+    },
+
+    initialize        : function(options) {
+      this.options.collection = options;
+      App.posts.on('sync', this, this);
       this.render();
     }, // end of initialize
 
-    render                    : function() {
+    render            : function(options) {
 
-    } // end of render
+      var self = this;
+      var posts = this.options.models;
+      _.each(posts, function(x) {
 
+        // Renders All Posts List
+        self.$el.append(self.template(x.toJSON()));
+
+    });
+  } // end of render
   });
-
-
 
 }());

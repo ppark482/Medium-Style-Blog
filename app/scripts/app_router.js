@@ -42,7 +42,7 @@
     },
     authorposts         : function () {
       // Instantiates Create Author Post
-      // new App.Views.AuthorPosts();
+       new App.Views.AuthorPosts();
     },
 
     tagspost            : function() {
