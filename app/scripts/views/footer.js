@@ -17,7 +17,7 @@
     }, // end of initialize
 
     render            : function (options) {
-      console.log(options);
+      // console.log(options);
       // Renders Foot Temp
       this.$el.html(this.template(this.options));
     }, // end of render
