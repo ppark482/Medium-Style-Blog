@@ -10,12 +10,17 @@
       'create'        : 'createAccount',
       'login'         : 'login',
       'myaccount'     : 'myAccount',
-      'addpost'       : 'addpost'
+      'addpost'       : 'addpost',
+      'authorposts'   : 'authorposts',
+      'singleposts'   : 'singleposts'
     }, // end of routes
 
     home              : function () {
        // Renders Home View
        new App.Views.Home();
+       new App.Views.Footer();
+       new App.Views.AuthorPosts();
+       new App.Views.SinglePost();
     }, // end of home
 
     createAccount     : function () {
@@ -37,7 +42,18 @@
     addpost           : function () {
       // Instantiate Add Post View
       new App.Views.AddPost();
+    },
+
+    authorposts        : function () {
+      // Instantiates Create Author Post
+      new App.Views.AuthorPosts();
+    },
+
+    singleposts        : function() {
+      new App.Views.SinglePost();
     }
+
+
 
    }); // end of router
 }()); // end of IIF

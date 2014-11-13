@@ -52,6 +52,9 @@ $blueBtn: rgb(2, 135, 255);
 
 }
 
+.authorsList{border:solid;}
+.tagsList{border:solid;}
+
 #middleRegion{
   @include outer-container;
 
