@@ -35,12 +35,6 @@ form {
   padding: 15px;
   margin: 0 auto;
   border: 1px solid HSLA(210, 12%, 17%, 1);
-  @include outer-container;
-}
-
-#wrapper{
-  @include outer-container;
-}
 
 #upperRegion {
   @include outer-container;
@@ -48,15 +42,14 @@ form {
   padding: 15px;
   border-bottom: 1px solid HSLA(210, 12%, 17%, 1);
 
-  .acctLink {
-  @include span-columns(3);
-  }
-
   .signUp {
   @include span-columns(3);
   }
 
   .login {
+  @include span-columns(3);
+
+  .acctLink {
   @include span-columns(3);
   }
 
@@ -65,6 +58,44 @@ form {
   }
 
 
+}/*end of Upper Region*/
+
+/*...Style extenstions...*/
+/* For Lower Region - Footer */
+.upperStyle{
+  margin-left:30px;
+  margin-bottom:20px;
+  margin-top:20px;
+}
+.middleStyle{
+  display:block;
+  margin-bottom:10px;
+  margin-left:10px;
+}
+
+.lowerStyle{
+  float:left;
+  margin-top:20px;
+  margin-bottom:20px;
+  border:solid;
+  width:300px;
+  border-radius:20px;
+}
+
+.titleStyle{
+  font-size:30px;
+  margin-right:20px;
+  margin-left:-30px;
+  text-decoration:underline;
+
+}
+
+
+
+/*...scss...*/
+
+#wrapper{
+  @include outer-container;
 }
 
 #middleRegion {
@@ -72,20 +103,21 @@ form {
 
   .createForm {
 
-    h2 {
+    h2{
+      @extend .middleStyle;
+    }
+
+    #createUsername{
+       @extend .middleStyle;
 
     }
 
-    #createUsername {
-
+    #createPassword{
+      @extend .middleStyle;
     }
 
-    #createPassword {
-
-    }
-
-    #makeAcct {
-
+    #makeAcct{
+      @extend .middleStyle;
     }
 
   }/* end of form */
@@ -94,5 +126,19 @@ form {
 
 #lowerRegion {
   @include outer-container;
+    border:solid;
+    .authorsList{
+      @extend .lowerStyle;
+      .listTitle{
+        @extend .titleStyle;
+        }
+      }/*end of authors list*/
 
-}
+    .tagsList{
+      @extend .lowerStyle;
+      .listTitle{
+        @extend .titleStyle;
+        }
+      }/*end of tags list*/
+
+}/*end of lower region*/

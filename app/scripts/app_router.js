@@ -11,12 +11,17 @@
       'login'           : 'login',
       'myaccount'       : 'myAccount',
       'addpost'         : 'addpost',
-      'single/:postID'  : 'singlePost'
+      'single/:postID'  : 'singlePost',
+      'authorposts'     : 'authorposts',
+      'tagspost'        : 'tagspost'
     }, // end of routes
 
     home                : function () {
        // Renders Home View
        new App.Views.Home(App.posts);
+       new App.Views.Footer();
+       new App.Views.AuthorPosts();
+       new App.Views.SinglePost();
     }, // end of home
 
     createAccount       : function () {
@@ -38,10 +43,14 @@
       // Instantiate Add Post View
       new App.Views.AddPost();
     },
+    authorposts         : function () {
+      // Instantiates Create Author Post
+      new App.Views.AuthorPosts();
+    },
 
-    singlePost          : function () {
-      // Instantiate Single Post View
-
+    tagspost            : function() {
+      // Instantiates Create Tag Post View
+      new App.Views.TagsPost();
     }
 
    }); // end of router
