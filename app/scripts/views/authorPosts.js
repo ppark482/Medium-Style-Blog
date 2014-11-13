@@ -1,6 +1,6 @@
 (function () {
 
-  App.Views.AuthorPosts=Parse.View.extend({
+  App.Views.AuthorPosts = Parse.View.extend({
 
     initialize                : function() {
       this.render();

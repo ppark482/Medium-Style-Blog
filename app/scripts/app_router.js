@@ -18,10 +18,7 @@
 
     home                : function () {
        // Renders Home View
-       new App.Views.Home(App.posts);
-       new App.Views.Footer();
-       new App.Views.AuthorPosts();
-       new App.Views.SinglePost();
+       new App.Views.Home({collection: App.posts, user: App.user});
     }, // end of home
 
     createAccount       : function () {
@@ -45,12 +42,12 @@
     },
     authorposts         : function () {
       // Instantiates Create Author Post
-      new App.Views.AuthorPosts();
+      // new App.Views.AuthorPosts();
     },
 
     tagspost            : function() {
       // Instantiates Create Tag Post View
-      new App.Views.TagsPost();
+      // new App.Views.TagsPost();
     }
 
    }); // end of router

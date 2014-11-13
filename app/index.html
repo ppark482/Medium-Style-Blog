@@ -44,13 +44,11 @@
     </script>
 
     <script type="text/template" id="footerTemp"> <!-- Create Footer Temp Template -->
-      <div class = "footer">
+      <div class="footer">
         <div class="authorsList">
           <ol><span class=listTitle>Authors:</span>
             <br></br>
-            <li><a href="google.com" class="author">Author a</a></li>
-            <li><a href="google.com" class="author">Author b</a></li>
-            <li><a href="google.com" class="author">Author c</a></li>
+            <li><a href="google.com" class="author"></a></li>
           </ol>
         </div><!--end of authorlist-->
         <div class="tagsList">
@@ -87,9 +85,9 @@
     </script>
 
     <script type="text/template" id="allPostsTemp"> <!-- Create All Posts for Homepage -->
-      <li class="postCard" id="<%= title %>">
-        <a href="#/single/<%= title %>">
-          <div class="postHeader"><%= title %> by <%= title %></div>
+      <li class="postCard" id="<%= objectId %>">
+        <a href="#/single/<%= objectId %>">
+          <div class="postHeader"><%= title %> by <%= App.user.name %></div>
           <span><%= tag %></span>
         </a>
       </li>
