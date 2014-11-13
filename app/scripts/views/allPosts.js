@@ -19,7 +19,6 @@
         // Renders All Posts List
         self.$el.append(self.template(x.toJSON()));
       });
-
     }
 
   }); // end of view
