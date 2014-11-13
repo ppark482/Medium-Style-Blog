@@ -9,13 +9,15 @@
       'click .login'  : 'login'
     },
 
-    initialize        : function () {
-      this.render();
+    initialize        : function (options) {
+      this.render(options);
     },
 
-    render            : function () {
+    render            : function (options) {
       // Renders Nav Bar
       new App.Views.NavBar();
+      // Render All Posts View
+      new App.Views.AllPosts(options);
     },
 
     signupForm        : function () {

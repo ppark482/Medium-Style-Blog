@@ -13,6 +13,7 @@
     initialize              : function (options) {
       // Retrieves passed in parameter from router
       this.options = options;
+      App.posts.on('sync', this, this);
       this.render();
     }, // end of initialize
 
