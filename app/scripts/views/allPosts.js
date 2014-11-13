@@ -14,8 +14,7 @@
     render: function (options) {
       // Renders All Posts List
       console.log(options);
-      console.log(options.toJSON());
-      this.$el.html(this.template(this.options.toJSON()));
+      this.$el.html(this.template(this.options.p.toJSON()));
     }
 
   }); // end of view
