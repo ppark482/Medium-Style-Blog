@@ -15,7 +15,6 @@
       this.render();
       App.user_collection.on('sync', this, this);
       $('.authorsList').html(this.$el);
-
     },
 
     render: function() {
@@ -23,11 +22,11 @@
       // console.log(options);
       // Need to open up models in collection
       var users = App.user_collection.models;
-      console.log(users);
+      // console.log(users);
       _.each(users, function(x) {
         // Need to bring in all users that have posted
         // And inject into rendered template
-        console.log(x);
+        // console.log(x);
         self.$el.append(self.template(x.toJSON()));
       });
       console.log(this.el);
