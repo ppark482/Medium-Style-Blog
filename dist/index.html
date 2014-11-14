@@ -4,6 +4,8 @@
     <meta charset="utf-8">
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
+    <link href='http://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Archivo+Narrow' rel='stylesheet' type='text/css'>
     <title>Medium Style Blog</title>
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
@@ -15,22 +17,116 @@
   </head>
   <body>
 
-    <div class="hero-unit">
-      <h1>'Allo, 'Allo!</h1>
-      <p>You now have</p>
-      <ul>
-        <li>HTML5 Boilerplate</li>
-        <li>Normalize CSS</li>
-        <li>Sass</li>
-        <li>Modernizr</li>
-        <li>Bourbon & Neat</li>
-        <li>UnderscoreJS</li>
-      </ul>
-      <p>Don't forget to update your readme file!!</p>
-    </div>
+    <div id="wrapper">
+      <div id="upperRegion"> <!-- start upperRegion -->
+      </div> <!--end of upperRegion-->
+      <div id="middleRegion">
+      </div> <!--end of mid region-->
+      <div id="lowerRegion">
+        <div class="authorsList"><h2>Authors:</h2></div>
+      </div> <!--end of lowerRegion-->
+    </div> <!--end of wrapper-->
+
+    <script type="text/template" id="navTemp"> <!-- Nav Bar Template -->
+      <div class="navBar"> <!-- start navBar -->
+        <a class ="acctLink" href="#/myaccount">My Account</a>
+        <button class="signUp">Sign Up</button>
+        <button class="login">Login</button>
+        <button class="logout">Log Out</button>
+      </div> <!-- end of navBar -->
+    </script>
+
+    <script type="text/template" id="footerTemp"> <!-- Create Footer Template -->
+      <div class="footer">
+        <div class="tagsList">
+          <ol><span class=listTitle>Tags:</span>
+            <br></br>
+            <li><a href="google.com" class="tag">Tag a</a></li>
+            <li><a href="google.com" class="tag">Tag b</a></li>
+            <li><a href="google.com" class="tag">Tag c</a></li>
+          </ol>
+        </div><!--end of tag list-->
+      </div><!--end of footer-->
+    </script>
+
+    <script type="text/template" id="footerAuthorTemp"> <!-- Create Footer Author Template -->
+      <li><%= username %></li>
+    </script>
+
+    <script type="text/template" id="acctTemp"> <!-- Create New Account Template -->
+      <div class="createAcct"> <!-- start create acct -->
+        <form class="createForm">
+          <h2>Create a new account:</h2>
+          <input id="createUsername" placeholder="Create User Name">
+          <input id="createPassword" type="password" placeholder="Create Password">
+          <button id="makeAcct">Create Account</button>
+        </form>
+      </div> <!-- end of create acct -->
+    </script>
+
+    <script type="text/template" id="loginTemp"> <!-- Create Login Template -->
+      <div> <!-- start login form -->
+        <form class="loginForm">
+          <h2>Login to your account:</h2>
+          <input id="loginUsername" placeholder="Enter User Name">
+          <input id="loginPassword" type="password" placeholder="Enter Password">
+          <button id="loginGo">Login</button>
+        </form>
+      </div> <!-- end of create acct -->
+    </script>
+
+    <script type="text/template" id="allPostsTemp"> <!-- Create All Posts for Homepage -->
+      <li class="postCard" id="<%= objectId %>">
+        <a href="#/single/<%= objectId %>">
+          <div class="postHeader"><%= title %> by <% console.log(user) %></div>
+          <span><%= tag %></span>
+        </a>
+      </li>
+    </script>
+
+    <script type="text/template" id="myAccountTemp"> <!-- Create My Account Template -->
+      <div>
+        <h2><%= username %>'s Information</h2>
+        <button id="addPost">Add Post</button>
+        <ul id="yourPosts"></ul>
+      </div>
+    </script>
+
+    <script type="text/template" id="addPostTemp"> <!-- Create Add Post Template -->
+      <div id="addNewPost">
+        <h2>Add New Post</h2>
+          <input type="text" id="addTitle" placeholder="Add A Title">
+          <textarea type="text" id="addContent" placeholder="Start Typing"></textarea>
+          <select name="select" id="addTag">
+            <option value="tag1" selected>Tag 1</option>
+            <option value="tag1">Tag 2</option>
+            <option value="tag1">Tag 3</option>
+          </select>
+          <button id="asDraft">Save As Draft</button>
+          <button id="publish">Publish</button>
+      </div>
+    </script>
+
+    <script type="text/template" id="singlePostTemp"> <!-- Create Add Post Template -->
+      <div id="single">This is the single post
+        <h2>Posting Title</h2>
+        <a href="google.com">Author Name</a>
+        <a href="google.com">Tag</a>
+        <button class="edit"></button>
+      </div>
+    </script>
+
+    <script type="text/template" id="authorPostTemp"> <!-- Create Add Post Template -->
+      <div>
+        <h2></h2>
+        <a class="authorPosts" href="google.com">Author Post View is Rendering</a>
+      </div>
+    </script>
 
     <script src="scripts/vendor.js"></script>
 
+    <script src="//www.parsecdn.com/js/parse-1.3.1.min.js"></script>
+
         <script src="scripts/main.js"></script>
-</body>
+  </body>
 </html>
