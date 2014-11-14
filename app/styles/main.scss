@@ -18,11 +18,13 @@ p {
   font-family: $textfont;
 }
 
-h2, button, a,  {
+h2, h3, h4, button, a,  {
   font-family: $headerfont;
 }
-li {
+li, a {
   list-style-type: none;
+  text-decoration: none;
+  font-family: $textfont;
 }
 
 button {
@@ -37,113 +39,75 @@ form {
   width: 50%;
   padding: 15px;
   margin: 0 auto;
-  border: 1px solid HSLA(210, 12%, 17%, 1);
+  border: $border;
 }
+/* Upper Region ++++++++++++++++++++++++++++++++++++++++++++++  */
 #upperRegion {
   @include outer-container;
   width: 100%;
   padding: 15px;
-  border-bottom: 1px solid HSLA(210, 12%, 17%, 1);
+  border-bottom: $border;
 
   .home{
-  @include span-columns(1);
+  @include span-columns(2.4);
 
   }
   .signUp {
-  @include span-columns(2.75);
+  @include span-columns(2.4);
   }
 
   .login {
-  @include span-columns(2.75);
+  @include span-columns(2.4);
   }
 
   .acctLink {
-  @include span-columns(2.75);
+  @include span-columns(2.4);
   }
 
   .logout {
-  @include span-columns(2.75);
+  @include span-columns(2.4);
   }
-}/*end of Upper Region*/
+} /*end of Upper Region*/
 
-/*...Style extenstions...*/
-/* For Lower Region - Footer */
-.upperStyle {
-  margin-left:30px;
-  margin-bottom:20px;
-  margin-top:20px;
-}
-.middleStyle {
-  display:block;
-  margin-bottom:10px;
-  margin-left:10px;
-}
-
-.lowerStyle {
-  float:left;
-  margin-top:20px;
-  margin-bottom:20px;
-  border:solid;
-  width:300px;
-  border-radius:20px;
-}
-
-.titleStyle {
-  font-size:30px;
-  margin-right:20px;
-  margin-left:-30px;
-  text-decoration:underline;
-
-}
-
-
-
-/*...scss...*/
-
-#wrapper {
-  @include outer-container;
-}
+/* Middle Region ++++++++++++++++++++++++++++++++++++++++++++++  */
 
 #middleRegion {
-  @include outer-container;
+  width: 75%;
+  padding: 15px;
+  margin: 15px auto;
+}
 
-  .createForm {
+.postCard {
+  height: 80px;
+  border-bottom: $border;
+  background-color: HSLA(0, 0%, 89%, 1);
+}
 
-    h2{
-      @extend .middleStyle;
-    }
-
-    #createUsername{
-       @extend .middleStyle;
-    }
-
-    #createPassword{
-      @extend .middleStyle;
-    }
-
-    #makeAcct{
-      @extend .middleStyle;
-    }
-
-  }/* end of form */
-
-}/* end of middle Region */
-
+/* Lower Region ++++++++++++++++++++++++++++++++++++++++++++++  */
 #lowerRegion {
   @include outer-container;
-  border:solid;
-
+  border: $border;
+  padding: 15px;
+  background-color: HSLA(210, 12%, 17%, 1);
+  color: white;
+  h3 {
+    padding-left: 15px;
+  }
   .authorsList {
-      @extend .lowerStyle;
-        .listTitle {
-          @extend .titleStyle;
-        }
-    }/*end of authors list*/
-
+    @include span-columns(6);
+    display: block;
+    border: $border;
+    height: 150px;
+    float: left;
+  }
   .tagsList {
-    @extend .lowerStyle;
-      .listTitle {
-        @extend .titleStyle;
-        }
-    }/*end of tags list*/
-}/*end of lower region*/
+    @include span-columns(6);
+    display: block;
+    border: $border;
+    height: 150px;
+    float: right;
+    h3 {
+      padding-left: 30px;
+    }
+  }
+} /*end of lower region*/

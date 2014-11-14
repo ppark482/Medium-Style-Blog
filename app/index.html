@@ -24,7 +24,6 @@
     <!-- endbuild -->
   </head>
   <body>
-
     <div id="wrapper">
       <div id="upperRegion"> <!-- start upperRegion -->
       </div> <!--end of upperRegion-->
@@ -33,14 +32,14 @@
       <div id="lowerRegion">
         <h3>Authors:</h3>
         <div class="authorsList"></div>
-        <h3>Tags:</h3>
         <div class="tagsList">
+          <h3>Tags:</h3>
           <ul>
             <li><a href="">Tag 1</a></li>
             <li><a href="">Tag 2</a></li>
             <li><a href="">Tag 3</a></li>
           </ul>
-        </div>
+        </div> <!-- end of tagsList -->
       </div> <!--end of lowerRegion-->
     </div> <!--end of wrapper-->
 
@@ -86,9 +85,9 @@
     </script>
 
     <script type="text/template" id="allPostsTemp"> <!-- Create All Posts for Homepage -->
-      <li class="postCard" id="<%= objectId %>" data="<%=objectId%>">
+      <li class="postCard" id="<%= objectId %>" data="<%= objectId %>">
         <a href="#/single/<%= objectId %>">
-          <div class="postHeader"><%= title %> by <% console.log(user) %></div>
+          <div class="postHeader"><h4><%= title %><h4> by <% console.log(user) %></div>
           <span><%= tag %></span>
         </a>
       </li>
