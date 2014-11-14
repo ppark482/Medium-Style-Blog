@@ -24,8 +24,6 @@
       new App.Views.Footer(this.options.user);
       // Render Footer Authors and Tags
       new App.Views.FooterAuthors();
-
-      this.removeBtn()
     },
 
     signupForm        : function () {
@@ -36,14 +34,6 @@
     login             : function () {
       // Instantiate Login Form
       new App.Views.Login();
-    },
-
-    removeBtn             : function() {
-      if (App.user===null) {
-        $('button').remove('.logout');
-        $('span').remove('.guest');
-        $('span').remove('.welcome');
-      }
     }
 
 
