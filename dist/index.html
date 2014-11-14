@@ -16,20 +16,30 @@
     <script src="scripts/vendor/modernizr.js"></script>
   </head>
   <body>
-
     <div id="wrapper">
       <div id="upperRegion"> <!-- start upperRegion -->
       </div> <!--end of upperRegion-->
       <div id="middleRegion">
       </div> <!--end of mid region-->
       <div id="lowerRegion">
-        <div class="authorsList"><h2>Authors:</h2></div>
+        <h3>Authors:</h3>
+        <div class="authorsList"></div>
+        <div class="tagsList">
+          <h3>Tags:</h3>
+          <ul>
+            <li><a href="">Tag 1</a></li>
+            <li><a href="">Tag 2</a></li>
+            <li><a href="">Tag 3</a></li>
+          </ul>
+        </div> <!-- end of tagsList -->
       </div> <!--end of lowerRegion-->
     </div> <!--end of wrapper-->
 
     <script type="text/template" id="navTemp"> <!-- Nav Bar Template -->
       <div class="navBar"> <!-- start navBar -->
         <a class ="acctLink" href="#/myaccount">My Account</a>
+        <span class =welcome>Welcome:<span class="guest"></span></span>
+        <button class="home">Home</button>
         <button class="signUp">Sign Up</button>
         <button class="login">Login</button>
         <button class="logout">Log Out</button>
@@ -38,19 +48,11 @@
 
     <script type="text/template" id="footerTemp"> <!-- Create Footer Template -->
       <div class="footer">
-        <div class="tagsList">
-          <ol><span class=listTitle>Tags:</span>
-            <br></br>
-            <li><a href="google.com" class="tag">Tag a</a></li>
-            <li><a href="google.com" class="tag">Tag b</a></li>
-            <li><a href="google.com" class="tag">Tag c</a></li>
-          </ol>
-        </div><!--end of tag list-->
       </div><!--end of footer-->
     </script>
 
     <script type="text/template" id="footerAuthorTemp"> <!-- Create Footer Author Template -->
-      <li><%= username %></li>
+      <li><a href="#/authorposts/<%= objectId %>"><%= username %></a></li>
     </script>
 
     <script type="text/template" id="acctTemp"> <!-- Create New Account Template -->
@@ -76,9 +78,9 @@
     </script>
 
     <script type="text/template" id="allPostsTemp"> <!-- Create All Posts for Homepage -->
-      <li class="postCard" id="<%= objectId %>">
+      <li class="postCard" id="<%= objectId %>" data="<%= objectId %>">
         <a href="#/single/<%= objectId %>">
-          <div class="postHeader"><%= title %> by <% console.log(user) %></div>
+          <div class="postHeader"><h4><%= title %></h4> by <% console.log(user) %></div>
           <span><%= tag %></span>
         </a>
       </li>
@@ -107,18 +109,20 @@
       </div>
     </script>
 
-    <script type="text/template" id="singlePostTemp"> <!-- Create Add Post Template -->
+    <script type="text/template" id="singlePostTemp"> <!-- Create Single Post Template -->
       <div id="single">This is the single post
-        <h2>Posting Title</h2>
-        <a href="google.com">Author Name</a>
-        <a href="google.com">Tag</a>
+        <h2><%= title %><span class="ifAuthor"></span></h2>
+        <a href="google.com"> Auhtor</a>
+        <a href="google.com"><%= tag %></a>
+        <p><%= content %></p>
+
         <button class="edit"></button>
       </div>
     </script>
 
-    <script type="text/template" id="authorPostTemp"> <!-- Create Add Post Template -->
+    <script type="text/template" id="authorPostTemp"> <!-- Create Author Template -->
       <div>
-        <h2></h2>
+        <h2><%= username %><span>'s Posts</span></h2>
         <a class="authorPosts" href="google.com">Author Post View is Rendering</a>
       </div>
     </script>

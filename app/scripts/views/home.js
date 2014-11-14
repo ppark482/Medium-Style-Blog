@@ -36,6 +36,7 @@
       new App.Views.Login();
     }
 
+
   }); // end of view
 
 }()); // end of IIF

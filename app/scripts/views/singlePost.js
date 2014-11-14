@@ -31,11 +31,7 @@
       //   $('.ifAuthor').append('<button class="editBtn">Edit</button>');
 
 
-      var a =  App.user.getUsername();
-        console.log(a);
 
-      var allP = App.posts._byId;
-      console.log(allP);
     }, //end of edit
 
     loop              : function() {

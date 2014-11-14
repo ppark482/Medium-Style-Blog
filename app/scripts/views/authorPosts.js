@@ -8,6 +8,7 @@
 
     events: {
 
+
     },
 
     initialize        : function(options) {
