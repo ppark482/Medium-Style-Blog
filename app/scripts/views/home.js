@@ -21,6 +21,8 @@
       new App.Views.AllPosts(this.options.collection);
       // Render Footer
       new App.Views.Footer(this.options.user);
+      // Render Footer Authros
+      new App.Views.FooterAuthors();
     },
 
     signupForm        : function () {
