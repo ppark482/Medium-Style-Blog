@@ -24,7 +24,6 @@
       new App.Views.Footer(this.options.user);
       // Render Footer Authors and Tags
       new App.Views.FooterAuthors();
-      new App.Views.FooterTags();
     },
 
     signupForm        : function () {

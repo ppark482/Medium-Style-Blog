@@ -4,8 +4,6 @@
 
     el                : '#lowerRegion',
 
-    template          : _.template($('#footerTemp').html()),
-
     events: {
       'click .author' : 'authorposts',
       'click .tag'    : 'tagspost'
@@ -13,7 +11,6 @@
 
     initialize        : function (options) {
       this.options = options;
-      this.render(options);
     }, // end of initialize
 
     render            : function (options) {
