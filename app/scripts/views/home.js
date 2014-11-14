@@ -15,13 +15,14 @@
     },
 
     render            : function (options) {
+      $('#upperRegion, #middleRegion, lowerRegion').html('');
       // Renders Nav Bar
       new App.Views.NavBar();
       // Render All Posts View
       new App.Views.AllPosts(this.options.collection);
       // Render Footer
       new App.Views.Footer(this.options.user);
-      // Render Footer Authros
+      // Render Footer Authors and Tags
       new App.Views.FooterAuthors();
     },
 
