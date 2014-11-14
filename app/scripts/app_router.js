@@ -40,9 +40,10 @@
       // Instantiate Add Post View
       new App.Views.AddPost();
     },
-    authorposts         : function () {
+    authorposts         : function (ID) {
+      var x = App.user_collection.get({ id : ID });
       // Instantiates Create Author Post
-       new App.Views.AuthorPosts();
+       new App.Views.AuthorPosts({ model : x });
     },
 
     tagspost            : function() {

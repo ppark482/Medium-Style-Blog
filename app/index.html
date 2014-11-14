@@ -59,7 +59,7 @@
     </script>
 
     <script type="text/template" id="footerAuthorTemp"> <!-- Create Footer Author Template -->
-      <li><a href=""><%= username %></a></li>
+      <li><a href="#/authorposts/<%= objectId %>"><%= username %></a></li>
     </script>
 
     <script type="text/template" id="acctTemp"> <!-- Create New Account Template -->
@@ -129,7 +129,7 @@
 
     <script type="text/template" id="authorPostTemp"> <!-- Create Author Template -->
       <div>
-        <h2></h2>
+        <h2><%= username %><span>'s Posts</span></h2>
         <a class="authorPosts" href="google.com">Author Post View is Rendering</a>
       </div>
     </script>
