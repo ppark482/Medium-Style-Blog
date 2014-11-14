@@ -13,12 +13,15 @@
 
     initialize: function() {
       this.render();
-      $('.authorsList').append(this.$el);
+      App.user_collection.on('sync', this, this);
+      $('.authorsList').html(this.$el);
+
     },
 
     render: function() {
       var self = this;
       // console.log(options);
+      // Need to open up models in collection
       var users = App.user_collection.models;
       console.log(users);
       _.each(users, function(x) {

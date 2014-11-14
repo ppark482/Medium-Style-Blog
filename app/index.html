@@ -31,7 +31,10 @@
       <div id="middleRegion">
       </div> <!--end of mid region-->
       <div id="lowerRegion">
-        <div class="authorsList"><h2>Authors:</h2></div>
+        <h3>Authors:</h3>
+        <div class="authorsList"></div>
+        <h3>Tags:</h3>
+        <div class="tagsList"></div>
       </div> <!--end of lowerRegion-->
     </div> <!--end of wrapper-->
 
@@ -46,19 +49,15 @@
 
     <script type="text/template" id="footerTemp"> <!-- Create Footer Template -->
       <div class="footer">
-        <div class="tagsList">
-          <ol><span class=listTitle>Tags:</span>
-            <br></br>
-            <li><a href="google.com" class="tag">Tag a</a></li>
-            <li><a href="google.com" class="tag">Tag b</a></li>
-            <li><a href="google.com" class="tag">Tag c</a></li>
-          </ol>
-        </div><!--end of tag list-->
       </div><!--end of footer-->
     </script>
 
     <script type="text/template" id="footerAuthorTemp"> <!-- Create Footer Author Template -->
       <li><%= username %></li>
+    </script>
+
+    <script type="text/template" id="footerTagTemp"> <!-- Create Footer Tag Template -->
+      <li><%= tag %></li>
     </script>
 
     <script type="text/template" id="acctTemp"> <!-- Create New Account Template -->
@@ -147,6 +146,7 @@
         <script src="scripts/models/comments_model.js"></script>
         <script src="scripts/views/footer.js"></script>
         <script src="scripts/views/footerAuthors.js"></script>
+        <script src="scripts/views/footerTags.js"></script>
         <script src="scripts/views/addPost.js"></script>
         <script src="scripts/views/allPosts.js"></script>
         <script src="scripts/views/authorPosts.js"></script>
