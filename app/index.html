@@ -31,6 +31,7 @@
       <div id="middleRegion">
       </div> <!--end of mid region-->
       <div id="lowerRegion">
+        <div class="authorsList"><h2>Authors:</h2></div>
       </div> <!--end of lowerRegion-->
     </div> <!--end of wrapper-->
 
@@ -43,14 +44,8 @@
       </div> <!-- end of navBar -->
     </script>
 
-    <script type="text/template" id="footerTemp"> <!-- Create Footer Temp Template -->
+    <script type="text/template" id="footerTemp"> <!-- Create Footer Template -->
       <div class="footer">
-        <div class="authorsList">
-          <ol><span class=listTitle>Authors:</span>
-            <br></br>
-            <li><a href="#/authorposts" class="author">Paul Park</a></li>
-          </ol>
-        </div><!--end of authorlist-->
         <div class="tagsList">
           <ol><span class=listTitle>Tags:</span>
             <br></br>
@@ -60,6 +55,10 @@
           </ol>
         </div><!--end of tag list-->
       </div><!--end of footer-->
+    </script>
+
+    <script type="text/template" id="footerAuthorTemp"> <!-- Create Footer Author Template -->
+      <li><%= username %></li>
     </script>
 
     <script type="text/template" id="acctTemp"> <!-- Create New Account Template -->
@@ -126,9 +125,9 @@
     </script>
 
     <script type="text/template" id="authorPostTemp"> <!-- Create Add Post Template -->
-      <div>This is all the posts of the Author
-        <h2>Author name</h2>
-        <a class="authorPosts" href="google.com">Author Name</a>
+      <div>
+        <h2></h2>
+        <a class="authorPosts" href="google.com">Author Post View is Rendering</a>
       </div>
     </script>
 
@@ -147,9 +146,11 @@
         <script src="scripts/models/post_model.js"></script>
         <script src="scripts/models/comments_model.js"></script>
         <script src="scripts/views/footer.js"></script>
+        <script src="scripts/views/footerAuthors.js"></script>
         <script src="scripts/views/addPost.js"></script>
         <script src="scripts/views/allPosts.js"></script>
         <script src="scripts/views/authorPosts.js"></script>
+        <script src="scripts/views/authorPostsList.js"></script>
         <script src="scripts/views/createAccount.js"></script>
         <script src="scripts/views/editDraft.js"></script>
         <script src="scripts/views/navBar.js"></script>

@@ -15,9 +15,15 @@
     render: function (options) {
       var self = this;
       var posts = this.options.models;
-      console.log(App.user_collection);
+      console.log(posts);
+      // console.log(App.user_collection.models);
       _.each(posts, function(x) {
+        // Looking for author
+        var id = x.id;
+        // var user = App.user_collection.findWhere({ id : id });
+        // console.log(user);
         // Renders All Posts List
+        console.log(x);
         self.$el.append(self.template(x.toJSON()));
       });
     }
