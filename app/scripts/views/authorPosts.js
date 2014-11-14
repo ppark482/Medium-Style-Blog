@@ -22,6 +22,7 @@
 
     render            : function(options) {
       var self = this;
+      console.log(this);
       var posts = this.options.models;
       // Need to render selected author's name
       // Pull id from clicked name from footer bar

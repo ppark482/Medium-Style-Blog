@@ -7,6 +7,7 @@
     template          : _.template($('#singlePostTemp').html()),
 
     events: {
+      //no events yet
 
     },
 
@@ -22,20 +23,30 @@
       this.$el.html(this.template(this.options.model.toJSON()));
     }, // end of render
 
-    edit              : function(user) {
+    edit              : function() {
 
-      if(App.user ===user) {
-        console.log(user);
-        console.log("yes");
-        $('.ifAuthor').append('<button class="editBtn">Edit</button>');
-      }
-    }
+      // if(App.user.getUsername) {
+      //   console.log(user);
+      //   console.log("yes");
+      //   $('.ifAuthor').append('<button class="editBtn">Edit</button>');
 
 
+      var a =  App.user.getUsername();
+        console.log(a);
+
+      var allP = App.posts._byId;
+      console.log(allP);
+    }, //end of edit
+
+    loop              : function() {
+
+        // _.each(allP, function(){
+        //
+        // });
+      }//end of loop
+
+  }); //end of single post view
 
 
-  });
 
-
-
-}());
+}());// end of IIF
