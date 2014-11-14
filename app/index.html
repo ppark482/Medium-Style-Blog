@@ -85,8 +85,8 @@
     </script>
 
     <script type="text/template" id="allPostsTemp"> <!-- Create All Posts for Homepage -->
-      <li class="postCard" id="<%= objectId %>">
-        <a class='post' href="#/single/<%= objectId %>">
+      <li class="postCard" id="<%= objectId %>" data="<%=objectId%>">
+        <a href="#/single/<%= objectId %>">
           <div class="postHeader"><%= title %> by <% console.log(user) %></div>
           <span><%= tag %></span>
         </a>
@@ -116,16 +116,18 @@
       </div>
     </script>
 
-    <script type="text/template" id="singlePostTemp"> <!-- Create Add Post Template -->
+    <script type="text/template" id="singlePostTemp"> <!-- Create Single Post Template -->
       <div id="single">This is the single post
-        <h2>Posting Title</h2>
-        <a href="google.com">Author Name</a>
-        <a href="google.com">Tag</a>
+        <h2><%= title %></h2>
+        <a href="google.com"> Auhtor</a>
+        <a href="google.com"><%= tag %></a>
+        <p><%= content %></p>
+
         <button class="edit"></button>
       </div>
     </script>
 
-    <script type="text/template" id="authorPostTemp"> <!-- Create Add Post Template -->
+    <script type="text/template" id="authorPostTemp"> <!-- Create Author Template -->
       <div>
         <h2></h2>
         <a class="authorPosts" href="google.com">Author Post View is Rendering</a>

@@ -48,6 +48,11 @@
     tagspost            : function() {
       // Instantiates Create Tag Post View
       // new App.Views.TagsPost();
+    },
+
+    singlePost          : function(postId) {
+      var x = App.posts.get({id: postId});
+      new App.Views.SinglePost({model: x});
     }
 
    }); // end of router

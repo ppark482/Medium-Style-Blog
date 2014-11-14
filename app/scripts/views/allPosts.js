@@ -7,7 +7,7 @@
     template: _.template($('#allPostsTemp').html()),
 
     events: {
-          'click .post' : 'singlepost'
+          'click li' : 'singlepost'
 
     },
 
@@ -31,6 +31,10 @@
         console.log(x);
         self.$el.append(self.template(x.toJSON()));
       });
+    }, /*end of render*/
+
+    singlepost     : function () {
+      console.log(this);
     }
 
   }); // end of view

@@ -11,13 +11,13 @@
     },
 
     initialize        : function(options) {
-      this.options=options
+      this.options=options;
       this.render();
     }, // end of initialize
 
     render            : function(options) {
-
-      this.$el.html(this.template(this.options));
+      new App.Views.NavBar();
+      this.$el.html(this.template(this.options.model.toJSON()));
     } // end of render
 
 
