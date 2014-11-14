@@ -24,11 +24,14 @@
       var self = this;
       var posts = this.options.model;
       console.log(posts);
-
       // Need to render selected author's name
       // Pull id from clicked name from footer bar
       self.$el.html(self.template(posts.toJSON()));
-  } // end of render
+      new App.Views.AuthorPostsList(options);
+    }, // end of render
+
+
+
   });
 
 }());
