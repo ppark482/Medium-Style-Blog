@@ -21,14 +21,17 @@ window.App = {};
     },
 
     render            : function (options) {
+      $('#upperRegion, #middleRegion, lowerRegion').html('');
       // Renders Nav Bar
       new App.Views.NavBar();
       // Render All Posts View
       new App.Views.AllPosts(this.options.collection);
       // Render Footer
       new App.Views.Footer(this.options.user);
-      // Render Footer Authros
+      // Render Footer Authors and Tags
       new App.Views.FooterAuthors();
+
+      this.removeBtn()
     },
 
     signupForm        : function () {
@@ -39,7 +42,16 @@ window.App = {};
     login             : function () {
       // Instantiate Login Form
       new App.Views.Login();
+    },
+
+    removeBtn             : function() {
+      if (App.user===null) {
+        $('button').remove('.logout');
+        $('span').remove('.guest');
+        $('span').remove('.welcome');
+      }
     }
+
 
   }); // end of view
 
@@ -80,8 +92,6 @@ window.App = {};
 
     el                : '#lowerRegion',
 
-    template          : _.template($('#footerTemp').html()),
-
     events: {
       'click .author' : 'authorposts',
       'click .tag'    : 'tagspost'
@@ -89,7 +99,6 @@ window.App = {};
 
     initialize        : function (options) {
       this.options = options;
-      this.render(options);
     }, // end of initialize
 
     render            : function (options) {
@@ -128,18 +137,20 @@ window.App = {};
 
     initialize: function() {
       this.render();
-      $('.authorsList').append(this.$el);
+      App.user_collection.on('sync', this, this);
+      $('.authorsList').html(this.$el);
     },
 
     render: function() {
       var self = this;
       // console.log(options);
+      // Need to open up models in collection
       var users = App.user_collection.models;
-      console.log(users);
+      // console.log(users);
       _.each(users, function(x) {
         // Need to bring in all users that have posted
         // And inject into rendered template
-        console.log(x);
+        // console.log(x);
         self.$el.append(self.template(x.toJSON()));
       });
       console.log(this.el);
@@ -209,6 +220,11 @@ window.App = {};
 
     template: _.template($('#allPostsTemp').html()),
 
+    events: {
+          'click li' : 'singlepost'
+
+    },
+
     initialize: function (options) {
       this.options.collection = options;
       App.posts.on('sync', this, this);
@@ -229,6 +245,10 @@ window.App = {};
         console.log(x);
         self.$el.append(self.template(x.toJSON()));
       });
+    }, /*end of render*/
+
+    singlepost     : function () {
+      console.log(this);
     }
 
   }); // end of view
@@ -245,24 +265,27 @@ window.App = {};
 
     events: {
 
+
     },
 
     initialize        : function(options) {
-      console.log(options);
       this.options.collection = options;
       App.posts.on('sync', this, this);
       // Need to render Navbar and footer for this view
       new App.Views.NavBar();
       new App.Views.Footer();
+      new App.Views.FooterAuthors();
       this.render();
     }, // end of initialize
 
     render            : function(options) {
       var self = this;
-      var posts = this.options.models;
+      var posts = this.options.model;
+      console.log(posts);
+
       // Need to render selected author's name
       // Pull id from clicked name from footer bar
-      self.$el.html(this.template);
+      self.$el.html(self.template(posts.toJSON()));
   } // end of render
   });
 
@@ -341,6 +364,7 @@ window.App = {};
     template          : _.template($('#navTemp').html()),
 
     events: {
+      'click .home'   : 'home',
       'click .signUp' : 'signupForm',
       'click .login'  : 'loginForm',
       'click .logout' : 'logout'
@@ -353,7 +377,23 @@ window.App = {};
     render            : function () {
       // Renders Nav Bar
       this.$el.html(this.template);
+      this.logName();
+      this.logstat();
     }, // end of render
+
+    home              : function() {
+
+      new App.Views.Home({collection: App.posts, user: App.user});
+    },
+
+    logName            : function() {
+      if (App.user===null){
+        console.log("none");
+      } else {
+      var a = App.user.getUsername();
+      $('.guest').append(" "+ a + " ");
+      }//end if/else statment
+    },
 
     signupForm        : function() {
       // On click to signup
@@ -372,7 +412,22 @@ window.App = {};
         App.user = null;
         App.router.navigate('', {trigger : true} );
         console.log('logged out');
+    },
+
+    logstat            : function() {
+      if (App.user===null) {
+        $('button').remove('.logout');
+        $('span').remove('.guest');
+        $('span').remove('.welcome');
+        $('a').remove('.acctLink');
+      } else {
+        $('button').remove('.signUp');
+        $('button').remove('.login');
       }
+
+
+      //end of if statement
+    }// end of logstat
 
   }); // end of view
 
@@ -469,26 +524,49 @@ window.App = {};
     template          : _.template($('#singlePostTemp').html()),
 
     events: {
+      //no events yet
 
     },
 
     initialize        : function(options) {
-      this.options=options
+      this.options=options;
       this.render();
+      this.edit();
     }, // end of initialize
 
     render            : function(options) {
+      new App.Views.NavBar();
+      new App.Views.FooterAuthors();
+      this.$el.html(this.template(this.options.model.toJSON()));
+    }, // end of render
 
-      this.$el.html(this.template(this.options));
-    } // end of render
+    edit              : function() {
+
+      // if(App.user.getUsername) {
+      //   console.log(user);
+      //   console.log("yes");
+      //   $('.ifAuthor').append('<button class="editBtn">Edit</button>');
+
+
+      var a =  App.user.getUsername();
+        console.log(a);
+
+      var allP = App.posts._byId;
+      console.log(allP);
+    }, //end of edit
+
+    loop              : function() {
+
+        // _.each(allP, function(){
+        //
+        // });
+      }//end of loop
+
+  }); //end of single post view
 
 
 
-  });
-
-
-
-}());
+}());// end of IIF
 
 (function () {
 
@@ -572,14 +650,20 @@ window.App = {};
       // Instantiate Add Post View
       new App.Views.AddPost();
     },
-    authorposts         : function () {
+    authorposts         : function (ID) {
+      var x = App.user_collection.get({ id : ID });
       // Instantiates Create Author Post
-       new App.Views.AuthorPosts();
+       new App.Views.AuthorPosts({ model : x });
     },
 
     tagspost            : function() {
       // Instantiates Create Tag Post View
       // new App.Views.TagsPost();
+    },
+
+    singlePost          : function(postId) {
+      var x = App.posts.get({id: postId});
+      new App.Views.SinglePost({model: x});
     }
 
    }); // end of router
