@@ -22,6 +22,8 @@
     render            : function(options) {
       var self = this;
       var posts = this.options.models;
+      // Need to render selected author's name
+      // Pull id from clicked name from footer bar
       self.$el.html(this.template);
   } // end of render
   });
