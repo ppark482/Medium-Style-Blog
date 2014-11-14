@@ -77,8 +77,14 @@ form {
   margin: 15px auto;
 }
 
+.postHeader {
+  h4 {
+    font-size: 30px;
+  }
+}
+
 .postCard {
-  height: 80px;
+  height: 100px;
   border-bottom: $border;
   background-color: HSLA(0, 0%, 89%, 1);
 }
