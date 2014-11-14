@@ -8,6 +8,7 @@
     template          : _.template($('#navTemp').html()),
 
     events: {
+      'click .home'   : 'home',
       'click .signUp' : 'signupForm',
       'click .login'  : 'loginForm',
       'click .logout' : 'logout'
@@ -21,6 +22,11 @@
       // Renders Nav Bar
       this.$el.html(this.template);
     }, // end of render
+
+    home        : function() {
+
+      new App.Views.Home({collection: App.posts, user: App.user});
+    },
 
     signupForm        : function() {
       // On click to signup

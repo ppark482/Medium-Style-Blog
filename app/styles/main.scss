@@ -45,20 +45,24 @@ form {
   padding: 15px;
   border-bottom: 1px solid HSLA(210, 12%, 17%, 1);
 
+  .home{
+  @include span-columns(1);
+
+  }
   .signUp {
-  @include span-columns(3);
+  @include span-columns(2.75);
   }
 
   .login {
-  @include span-columns(3);
+  @include span-columns(2.75);
   }
 
   .acctLink {
-  @include span-columns(3);
+  @include span-columns(2.75);
   }
 
   .logout {
-  @include span-columns(3);
+  @include span-columns(2.75);
   }
 }/*end of Upper Region*/
 
