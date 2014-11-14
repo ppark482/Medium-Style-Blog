@@ -6,6 +6,11 @@
 
     template: _.template($('#allPostsTemp').html()),
 
+    events: {
+          'click .post' : 'singlepost'
+
+    },
+
     initialize: function (options) {
       this.options.collection = options;
       App.posts.on('sync', this, this);
