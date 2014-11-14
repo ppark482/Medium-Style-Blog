@@ -12,7 +12,7 @@
       'myaccount'       : 'myAccount',
       'addpost'         : 'addpost',
       'single/:postID'  : 'singlePost',
-      'authorposts'     : 'authorposts',
+      'authorposts/:ID' : 'authorposts',
       'tagspost'        : 'tagspost'
     }, // end of routes
 

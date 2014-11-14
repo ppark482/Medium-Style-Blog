@@ -11,6 +11,7 @@
     },
 
     initialize        : function(options) {
+      console.log(options);
       this.options.collection = options;
       App.posts.on('sync', this, this);
       this.render();
