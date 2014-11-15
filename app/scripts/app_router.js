@@ -13,7 +13,10 @@
       'addpost'         : 'addpost',
       'single/:postID'  : 'singlePost',
       'authorposts/:ID' : 'authorposts',
-      'tagspost'        : 'tagspost'
+      'tagspost'        : 'tagspost',
+      'green'           : 'green',
+      'yellow'          : 'yellow',
+      'orange'          : 'orange'
     }, // end of routes
 
     home                : function () {
@@ -54,6 +57,11 @@
     singlePost          : function(postId) {
       var x = App.posts.get({id: postId});
       new App.Views.SinglePost({model: x});
+    },
+
+    green               : function() {
+      var green = 'green';
+      new App.Views.TagsPost(green);
     }
 
    }); // end of router

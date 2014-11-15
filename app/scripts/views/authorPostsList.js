@@ -24,11 +24,12 @@
     },
 
 
-    postQuery: function () {
+    postQuery: function (options) {
       var self = this;
       // console.log(App.posts.models[0].attributes.user.id);
       // Query parse to find posts
       // for the passed user
+      console.log(options);
       var query = new Parse.Query(App.Models.Post);
       query.equalTo('user', App.user);
       query.find({
@@ -39,8 +40,7 @@
           });
         }
       }); // end of query find
-    }, // end of postQuery
-
+    } // end of postQuery
 
   }); // end of view
 

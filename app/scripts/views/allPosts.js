@@ -26,7 +26,7 @@
       // console.log(published);
       // console.log(App.user_collection.models);
       _.each(posts, function(x) {
-        self.$el.append(self.template(x.toJSON()));
+        self.$el.prepend(self.template(x.toJSON()));
       });
     }, /*end of render*/
 
