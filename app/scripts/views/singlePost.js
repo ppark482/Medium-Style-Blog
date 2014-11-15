@@ -27,10 +27,15 @@
 
     edit              : function() {
 
-      var editText = $('#contentForEdit').val();
+      var editTitle = $('#titleForEdit').text();
+      var editText  = $('#contentForEdit').text();
+
+      console.log(editTitle);
       console.log(editText);
 
-      new App.Views.EditPost();
+
+
+      new App.Views.EditPost(editText);
 
 
 
