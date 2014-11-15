@@ -15,7 +15,6 @@
     initialize        : function(options) {
       this.options=options;
       this.render();
-      this.edit();
     }, // end of initialize
 
     render            : function(options) {
@@ -27,7 +26,7 @@
 
     edit              : function() {
 
-      // new App.Views.EditPost();
+      new App.Views.EditPost();
 
 
 
