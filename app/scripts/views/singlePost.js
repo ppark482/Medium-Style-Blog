@@ -19,16 +19,14 @@
 
     render            : function(options) {
       new App.Views.NavBar();
+      new App.Views.Footer();
       new App.Views.FooterAuthors();
       this.$el.html(this.template(this.options.model.toJSON()));
     }, // end of render
 
     edit              : function() {
 
-      // if(App.user.getUsername) {
-      //   console.log(user);
-      //   console.log("yes");
-      //   $('.ifAuthor').append('<button class="editBtn">Edit</button>');
+
 
 
 
@@ -36,9 +34,7 @@
 
     loop              : function() {
 
-        // _.each(allP, function(){
-        //
-        // });
+
       }//end of loop
 
   }); //end of single post view

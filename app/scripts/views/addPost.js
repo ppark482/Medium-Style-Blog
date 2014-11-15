@@ -27,7 +27,7 @@
         title: $('#addTitle').val(),
         content: $('#addContent').val(),
         tag: $('#addTag').val(),
-        user: App.user
+        user:App.user
       });
       var access = new Parse.ACL(App.user);
       // Set read access to anyone

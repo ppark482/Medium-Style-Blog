@@ -88,7 +88,7 @@
     <script type="text/template" id="allPostsTemp"> <!-- Create All Posts for Homepage -->
       <li class="postCard" id="<%= objectId %>" data="<%= objectId %>">
         <a href="#/single/<%= objectId %>">
-          <div class="postHeader"><h4><%= title %></h4> by <% console.log(user) %></div>
+          <div class="postHeader"><h4><%= title %></h4> by <span><%=user%> </span></div>
           <span><%= tag %></span>
         </a>
       </li>
@@ -113,6 +113,7 @@
             <option value="tag1">Tag 3</option>
           </select>
           <button id="asDraft">Save As Draft</button>
+          <span> Created by:</span>
           <button id="publish">Publish</button>
       </div>
     </script>
@@ -120,7 +121,7 @@
     <script type="text/template" id="singlePostTemp"> <!-- Create Single Post Template -->
       <div id="single">This is the single post
         <h2><%= title %><span class="ifAuthor"></span></h2>
-        <a href="google.com"> Auhtor</a>
+        <a href="google.com"></a>
         <a href="google.com"><%= tag %></a>
         <p><%= content %></p>
 
