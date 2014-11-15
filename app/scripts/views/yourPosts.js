@@ -2,7 +2,7 @@
 
   App.Views.YourPosts = Parse.View.extend({
 
-    el                    : '#middleRegion',
+    el                    : '#yourPosts',
     template              :  _.template($('#yourTemp').html()),
 
     events: {
@@ -16,6 +16,8 @@
     },//end of initialize
 
     render                : function() {
+
+
 
     }//end of render
 
