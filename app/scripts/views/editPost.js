@@ -37,13 +37,6 @@
          } else {
            $('#editTag').html('<option value="green">Green</option><option value="yellow">Yellow</option><option value="orange" selected>Orange</option>');
            } // end of conditional
-
-
-      // $('#editTag').html(<option value="tag1" selected>Tag 1</option>
-      // <option value="tag1">Tag 2</option>
-      // <option value="tag1">Tag 3</option>);
-      // console.log(editText);
-      // Render Add Post Page
     },
 
     update               : function () {

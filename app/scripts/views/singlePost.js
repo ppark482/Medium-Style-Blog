@@ -16,6 +16,7 @@
     initialize        : function (options) {
       this.options = options;
       this.render();
+      var modelID = options.model.id;
     }, // end of initialize
 
     render            : function (options) {
@@ -26,11 +27,11 @@
     }, // end of render
 
     edit              : function() {
-
+      // NEED TO PASS ID VALUE TO NEW EDIT VIEW
+      // console.log(modelID);
       var editTitle = $('#titleForEdit').text();
       var editText = $('#contentForEdit').text();
       var editTag = $('#tagForEdit').text();
-      console.log(editTag);
       new App.Views.EditPost({
         title: editTitle,
         content: editText,
