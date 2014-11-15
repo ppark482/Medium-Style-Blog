@@ -29,7 +29,7 @@
       // for the passed user
       var query = new Parse.Query(App.Models.Post);
       query.equalTo('user', App.user);
-      console.log(App.user);
+      // console.log(App.user);
       query.find({
         success: function(results) {
           _.each(results, function(x) {

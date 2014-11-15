@@ -10,7 +10,9 @@
       title: '',
       content: '',
       tag: '',
-      user: ''
+      user: '',
+      author: '',
+      status: ''
     },
 
     initialize: function () {

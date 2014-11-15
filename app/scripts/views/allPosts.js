@@ -13,6 +13,7 @@
     initialize: function (options) {
       this.options.collection = options;
       App.posts.on('sync', this, this);
+      // this.authorQuery();
       this.render(options);
     }, // end of initialize
 
@@ -22,12 +23,6 @@
       console.log(posts);
       // console.log(App.user_collection.models);
       _.each(posts, function(x) {
-        // Looking for author
-        var id = x.id;
-        // var user = App.user_collection.findWhere({ id : id });
-        // console.log(user);
-        // Renders All Posts List
-        // console.log(x);
         self.$el.append(self.template(x.toJSON()));
       });
     }, /*end of render*/

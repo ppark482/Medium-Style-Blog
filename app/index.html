@@ -88,7 +88,7 @@
     <script type="text/template" id="allPostsTemp"> <!-- Create All Posts for Homepage -->
       <li class="postCard" id="<%= objectId %>" data="<%= objectId %>">
         <a href="#/single/<%= objectId %>">
-          <div class="postHeader"><h4><%= title %></h4> by <span><%=user%> </span></div>
+          <div class="postHeader"><h4><%= title %></h4> by <span><%= author %> </span></div>
           <span><%= tag %></span>
         </a>
       </li>
@@ -120,7 +120,7 @@
 
     <script type="text/template" id="singlePostTemp"> <!-- Create Single Post Template -->
       <div id="single">This is the single post
-        <h2><%= title %><span class="ifAuthor"></span></h2>
+        <h2><%= title %> by <span class="ifAuthor"><%= author %></span></h2>
         <a href="google.com"></a>
         <a href="google.com"><%= tag %></a>
         <p><%= content %></p>
