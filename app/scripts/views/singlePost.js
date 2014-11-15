@@ -7,7 +7,8 @@
     template          : _.template($('#singlePostTemp').html()),
 
     events: {
-      //no events yet
+
+      'click .edit' : 'edit',
 
     },
 
@@ -26,7 +27,7 @@
 
     edit              : function() {
 
-
+      // new App.Views.EditPost();
 
 
 
