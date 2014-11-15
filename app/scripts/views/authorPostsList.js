@@ -14,7 +14,7 @@
     initialize: function (options) {
       this.options = options;
       // Get our element on the page
-      $('.authorPosts').html();
+      $('.authorPosts').html(this.$el);
       this.postQuery();
     },
 
@@ -24,14 +24,23 @@
 
     postQuery: function () {
       var self = this;
-      console.log(App.posts.models[0].attributes.user.id);
+      // console.log(App.posts.models[0].attributes.user.id);
       // Query parse to find posts
       // for the passed user
-      var userPosts = new Parse.Query(App.Models.Post);
-      userPosts.equalTo('username', App.user)
-      // Paul is working here
-
-    }
+      var query = new Parse.Query(App.Models.Post);
+      // not working ++++++++++++++++++++++++++++++++++++++++++++++++++++
+      query.equalTo('user', App.user.id);
+      console.log(App.user.id);
+      query.find({
+        success: function(results) {
+          self.collection = results;
+          _.each(results, function(x) {
+            // console.log(x.toJSON());
+            self.$el.append(self.template(x.toJSON()));
+          });
+        }
+      });
+    } // end of postQuery
 
   }); // end of view
 
