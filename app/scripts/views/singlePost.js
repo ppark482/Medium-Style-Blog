@@ -26,7 +26,7 @@
     }, // end of render
 
     edit              : function() {
-
+      
       new App.Views.EditPost();
 
 

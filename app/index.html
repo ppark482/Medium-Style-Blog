@@ -25,6 +25,7 @@
   </head>
   <body>
     <div id="wrapper">
+      <h1>Veggie Straws Blog</h1>
       <div id="upperRegion"> <!-- start upperRegion -->
       </div> <!--end of upperRegion-->
       <div id="middleRegion">
@@ -88,8 +89,8 @@
     <script type="text/template" id="allPostsTemp"> <!-- Create All Posts for Homepage -->
       <li class="postCard" id="<%= objectId %>" data="<%= objectId %>">
         <a href="#/single/<%= objectId %>">
-          <div class="postHeader"><h4><%= title %></h4> by <span><%= author %> </span></div>
-          <span><%= tag %></span>
+          <div class="postHeader"><h4><%= title %></h4>by: <%= author %> </span></div>
+          <span>Saved as: <%= tag %></span>
         </a>
       </li>
     </script>
