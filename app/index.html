@@ -122,9 +122,9 @@
 
     <script type="text/template" id="singlePostTemp"> <!-- Create Single Post Template -->
       <div id="single">This is the single post
-        <h2 id="titleForEdit"><%= title %> by <span class="ifAuthor"><%= author %></span></h2>
+        <h2 id="titleForEdit"><%= title %></h2> by <span class="ifAuthor"><%= author %></span>
         <a id="" href="google.com"></a>
-        <a id="" href="google.com"><%= tag %></a>
+        <a id="tagForEdit" href="google.com"><%= tag %></a>
         <p id="contentForEdit"><%= content %></p>
         <button class="edit">edit</button>
         <button class="delete">delete</button>
@@ -159,7 +159,7 @@
     <script type="text/template" id="editTemp"> <!-- Create Edit Post Template -->
       <div id="editPost">
         <h2>Edit Post</h2>
-          <input type="text" id="addTitle" placeholder="Add A Title">
+          <div id="addTitle"></div>
           <textarea type="text" id="editContent"></textarea>
           <select name="select" id="editTag">
             <option value="tag1" selected>Tag 1</option>

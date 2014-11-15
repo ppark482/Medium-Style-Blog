@@ -19,14 +19,29 @@
 
     render              : function (options) {
       // Renders Nav Bar
-      var t =options;
-      console.log(t);
+      var t = options;
 
       new App.Views.NavBar();
       new App.Views.Footer();
       this.$el.html(this.template);
 
-      $('#editContent').append(t);
+      $('#addTitle').html('<input id="editTitle" type="text" value="' + t.title + '"/>');
+      $('#editContent').append(t.content);
+      if (t.tag === 'green') {
+         $('#editTag').html('<option value="green" selected>Green</option><option value="yellow">Yellow</option><option value="orange">Orange</option>');
+       }
+       if (t.tag === 'green') {
+         $('#editTag').html('<option value="green" selected>Green</option><option value="yellow">Yellow</option><option value="orange">Orange</option>');
+       } else if (t.tag === 'yellow') {
+         $('#editTag').html('<option value="green">Green</option><option value="yellow" selected>Yellow</option><option value="orange">Orange</option>');
+         } else {
+           $('#editTag').html('<option value="green">Green</option><option value="yellow">Yellow</option><option value="orange" selected>Orange</option>');
+           } // end of conditional
+
+
+      // $('#editTag').html(<option value="tag1" selected>Tag 1</option>
+      // <option value="tag1">Tag 2</option>
+      // <option value="tag1">Tag 3</option>);
       // console.log(editText);
       // Render Add Post Page
     },
@@ -35,9 +50,7 @@
 
     },
 
-
     cancel               : function () {
-
       App.router.navigate('myaccount', { trigger:true });
 
     }

@@ -13,12 +13,12 @@
 
     },
 
-    initialize        : function(options) {
-      this.options=options;
+    initialize        : function (options) {
+      this.options = options;
       this.render();
     }, // end of initialize
 
-    render            : function(options) {
+    render            : function (options) {
       new App.Views.NavBar();
       new App.Views.Footer();
       new App.Views.FooterAuthors();
@@ -28,17 +28,14 @@
     edit              : function() {
 
       var editTitle = $('#titleForEdit').text();
-      var editText  = $('#contentForEdit').text();
-
-      console.log(editTitle);
-      console.log(editText);
-
-
-
-      new App.Views.EditPost(editText);
-
-
-
+      var editText = $('#contentForEdit').text();
+      var editTag = $('#tagForEdit').text();
+      console.log(editTag);
+      new App.Views.EditPost({
+        title: editTitle,
+        content: editText,
+        tag: editTag
+      });
     }, //end of edit
 
     delete            : function () {
