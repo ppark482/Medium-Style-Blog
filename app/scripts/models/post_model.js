@@ -10,7 +10,8 @@
       title: '',
       content: '',
       tag: '',
-      user: ''
+      user: '',
+      author: ''
     },
 
     initialize: function () {
