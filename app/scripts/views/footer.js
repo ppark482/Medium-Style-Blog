@@ -6,7 +6,9 @@
 
     events: {
       'click .author' : 'authorposts',
-      'click .tag'    : 'tagspost'
+      'click .green'  : 'tagspost',
+      'click .yellow' : 'tagspost',
+      'click .orange' : 'tagspost',
     },
 
     initialize        : function (options) {
@@ -25,10 +27,11 @@
     },
 
     tagspost        : function () {
-      // Instantiates Single Posts
+    new App.Views.TagsPost();
+      // Instantiates Tags Posts
     App.router.navigate('tagspost', { trigger: true });
 
-    },
+    }
 
   });
 

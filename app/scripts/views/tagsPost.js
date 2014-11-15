@@ -6,12 +6,13 @@
 
     template: _.template($('#tagViewTemp').html()),
 
-    initialize                : function(options) {
+    initialize                : function() {
       this.render();
     }, // end of initialize
 
     render                    : function() {
-      this.$el.empty();
+
+      this.$el.html(this.template);
       new App.Views.NavBar();
       new App.Views.Footer();
       new App.Views.FooterAuthors();
