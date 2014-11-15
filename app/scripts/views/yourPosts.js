@@ -3,6 +3,7 @@
   App.Views.YourPosts = Parse.View.extend({
 
     el                    : '#yourPosts',
+    
     template              :  _.template($('#yourTemp').html()),
 
     events: {

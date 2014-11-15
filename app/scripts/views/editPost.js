@@ -8,7 +8,6 @@
 
 
     events: {
-      'single/:postID'  : 'singlePost',
       'click #cancel'   : 'cancel',
       'click #update'   : 'update'
     },
@@ -27,11 +26,6 @@
 
     update               : function () {
 
-    },
-
-    singlePost          : function(postId) {
-      var x = App.posts.get({id: postId});
-      new App.Views.SinglePost({model: x});
     },
 
 
