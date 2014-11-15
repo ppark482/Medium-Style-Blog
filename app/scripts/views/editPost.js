@@ -19,11 +19,14 @@
 
     render              : function (options) {
       // Renders Nav Bar
-      console.log(options);
-      console.log(options);
+      var t =options;
+      console.log(t);
+
       new App.Views.NavBar();
       new App.Views.Footer();
       this.$el.html(this.template);
+
+      $('#editContent').append(t);
       // console.log(editText);
       // Render Add Post Page
     },
