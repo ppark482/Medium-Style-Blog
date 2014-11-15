@@ -17,6 +17,7 @@
   </head>
   <body>
     <div id="wrapper">
+      <h1>Veggie Straws Blog</h1>
       <div id="upperRegion"> <!-- start upperRegion -->
       </div> <!--end of upperRegion-->
       <div id="middleRegion">
@@ -27,9 +28,9 @@
         <div class="tagsList">
           <h3>Tags:</h3>
           <ul>
-            <li><a href="">Tag 1</a></li>
-            <li><a href="">Tag 2</a></li>
-            <li><a href="">Tag 3</a></li>
+            <li class="green"><a href="#/green">Green Veggie Straws</a></li>
+            <li class="yellow"><a href="#/yellow">Yellow Veggie Straws</a></li>
+            <li class="orange"><a href="#/orange">Orange Veggie Straws</a></li>
           </ul>
         </div> <!-- end of tagsList -->
       </div> <!--end of lowerRegion-->
@@ -78,12 +79,14 @@
     </script>
 
     <script type="text/template" id="allPostsTemp"> <!-- Create All Posts for Homepage -->
+      <% if (status === 'published') { %>
       <li class="postCard" id="<%= objectId %>" data="<%= objectId %>">
         <a href="#/single/<%= objectId %>">
-          <div class="postHeader"><h4><%= title %></h4> by <% console.log(user) %></div>
-          <span><%= tag %></span>
+          <div class="postHeader"><h4><%= title %></h4>by: <%= author %> </span></div>
+          <span>Saved as: <%= tag %></span>
         </a>
       </li>
+      <% } %>
     </script>
 
     <script type="text/template" id="myAccountTemp"> <!-- Create My Account Template -->
@@ -100,9 +103,9 @@
           <input type="text" id="addTitle" placeholder="Add A Title">
           <textarea type="text" id="addContent" placeholder="Start Typing"></textarea>
           <select name="select" id="addTag">
-            <option value="tag1" selected>Tag 1</option>
-            <option value="tag1">Tag 2</option>
-            <option value="tag1">Tag 3</option>
+            <option value="green" selected>Green Veggie Straw</option>
+            <option value="yellow">Yellow Veggie Straw</option>
+            <option value="orange">Orange Veggie Straw</option>
           </select>
           <button id="asDraft">Save As Draft</button>
           <button id="publish">Publish</button>
@@ -111,19 +114,59 @@
 
     <script type="text/template" id="singlePostTemp"> <!-- Create Single Post Template -->
       <div id="single">This is the single post
-        <h2><%= title %><span class="ifAuthor"></span></h2>
-        <a href="google.com"> Auhtor</a>
-        <a href="google.com"><%= tag %></a>
-        <p><%= content %></p>
-
-        <button class="edit"></button>
+        <h2 id="titleForEdit"><%= title %></h2> by <span class="ifAuthor"><%= author %></span>
+        <a id="" href="google.com"></a>
+        <a id="tagForEdit" href="google.com"><%= tag %></a>
+        <p id="contentForEdit"><%= content %></p>
+        <button class="edit">edit</button>
+        <button class="delete">delete</button>
       </div>
     </script>
 
     <script type="text/template" id="authorPostTemp"> <!-- Create Author Template -->
       <div>
         <h2><%= username %><span>'s Posts</span></h2>
-        <a class="authorPosts" href="google.com">Author Post View is Rendering</a>
+        <div class="authorPosts"></div>
+      </div>
+    </script>
+
+    <script type="text/template" id ="yourTemp"><!--Creat your posts template-->
+      <div> Your Posts here!!
+      <p>Filler Content:
+      blah blah blah blah  blah blah blah blah  blah blah blah blah</p>
+      blah blah blah blah  blah blah blah blah  blah blah blah blah  blah blah blah blah
+      blah blah blah blah  blah blah blah blah  blah blah blah blah  blah blah blah blah
+      </div>
+    </script>
+
+
+
+    <script type="text/template" id="authorPostsListsTemp"> <!-- Create Author Lists Template -->
+      <li><h4><%= title %></h4> <p><%= content %><p></li>
+    </script>
+
+
+
+
+    <script type="text/template" id="editTemp"> <!-- Create Edit Post Template -->
+      <div id="editPost">
+        <h2>Edit Post</h2>
+          <div id="addTitle"></div>
+          <textarea type="text" id="editContent"></textarea>
+          <select name="select" id="editTag">
+            <option value="tag1" selected>Tag 1</option>
+            <option value="tag1">Tag 2</option>
+            <option value="tag1">Tag 3</option>
+          </select>
+          <button id="cancel">Cancel</button>
+          <button id="update">Update</button>
+      </div>
+    </script>
+
+    <script type="text/template" id="tagViewTemp"> <!-- Create Tags Posts View -->
+      <div>This is the tags view
+
+      <button>HEY!!!</button>
       </div>
     </script>
 
