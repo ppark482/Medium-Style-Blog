@@ -12,15 +12,22 @@
       'click #update'   : 'update'
     },
 
-    initialize          : function () {
-      this.render();
+    initialize          : function (options) {
+      this.options = options;
+      this.render(options);
     },
 
-    render              : function () {
+    render              : function (options) {
       // Renders Nav Bar
+      var t =options;
+      console.log(t);
+
       new App.Views.NavBar();
       new App.Views.Footer();
       this.$el.html(this.template);
+
+      $('#editContent').append(t);
+      // console.log(editText);
       // Render Add Post Page
     },
 
