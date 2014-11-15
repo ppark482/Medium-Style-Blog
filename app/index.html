@@ -140,6 +140,22 @@
       <li><h4><%= title %></h4> <p><%= content %><p></li>
     </script>
 
+    <script type="text/template" id="editTemp"> <!-- Create Add Post Template -->
+      <div id="addNewPost">
+        <h2>Add New Post</h2>
+          <input type="text" id="addTitle" placeholder="Add A Title">
+          <textarea type="text" id="addContent" placeholder="Start Typing"></textarea>
+          <select name="select" id="addTag">
+            <option value="tag1" selected>Tag 1</option>
+            <option value="tag1">Tag 2</option>
+            <option value="tag1">Tag 3</option>
+          </select>
+          <button id="asDraft">Save As Draft</button>
+          <span> Created by:</span>
+          <button id="publish">Publish</button>
+      </div>
+    </script>
+
     <!-- build:js scripts/vendor.js -->
     <!-- bower:js -->
     <script src="../bower_components/jquery/dist/jquery.js"></script>
@@ -161,6 +177,7 @@
         <script src="scripts/views/authorPosts.js"></script>
         <script src="scripts/views/authorPostsList.js"></script>
         <script src="scripts/views/createAccount.js"></script>
+        <script src="scripts/views/editPost.js"></script>
         <script src="scripts/views/editDraft.js"></script>
         <script src="scripts/views/navBar.js"></script>
         <script src="scripts/views/login.js"></script>
