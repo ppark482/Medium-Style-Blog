@@ -2,7 +2,7 @@
 
   App.Views.MyAcct = Parse.View.extend({
 
-    el: '#middleRegion',
+    el                      : '#middleRegion',
 
     events: {
       'click #addPost'      : 'addPost'
