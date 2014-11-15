@@ -87,12 +87,14 @@
     </script>
 
     <script type="text/template" id="allPostsTemp"> <!-- Create All Posts for Homepage -->
+      <% if (status === 'published') { %>
       <li class="postCard" id="<%= objectId %>" data="<%= objectId %>">
         <a href="#/single/<%= objectId %>">
           <div class="postHeader"><h4><%= title %></h4>by: <%= author %> </span></div>
           <span>Saved as: <%= tag %></span>
         </a>
       </li>
+      <% } %>
     </script>
 
     <script type="text/template" id="myAccountTemp"> <!-- Create My Account Template -->

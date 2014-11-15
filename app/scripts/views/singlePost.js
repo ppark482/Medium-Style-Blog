@@ -26,10 +26,7 @@
     }, // end of render
 
     edit              : function() {
-
       var editText = $('#contentForEdit').val();
-      console.log(editText);
-
       new App.Views.EditPost();
 
 
