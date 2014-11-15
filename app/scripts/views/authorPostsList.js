@@ -28,18 +28,16 @@
       // Query parse to find posts
       // for the passed user
       var query = new Parse.Query(App.Models.Post);
-      // not working ++++++++++++++++++++++++++++++++++++++++++++++++++++
-      query.equalTo('user', App.user.id);
-      console.log(App.user.id);
+      query.equalTo('user', App.user);
+      console.log(App.user);
       query.find({
         success: function(results) {
-          self.collection = results;
           _.each(results, function(x) {
             // console.log(x.toJSON());
             self.$el.append(self.template(x.toJSON()));
           });
         }
-      });
+      }); // end of query find
     } // end of postQuery
 
   }); // end of view

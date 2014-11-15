@@ -8,7 +8,6 @@
 
     events: {
           'click li' : 'singlepost'
-
     },
 
     initialize: function (options) {
@@ -34,7 +33,7 @@
     }, /*end of render*/
 
     singlepost     : function () {
-      console.log(this);
+      // console.log(this);
     }
 
   }); // end of view
