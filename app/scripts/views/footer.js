@@ -6,9 +6,9 @@
 
     events: {
       'click .author' : 'authorposts',
-      'click .green'  : 'tagspost',
-      'click .yellow' : 'tagspost',
-      'click .orange' : 'tagspost',
+      'click .green'  : 'tagspostG',
+      'click .yellow' : 'tagspostY',
+      'click .orange' : 'tagspostO',
     },
 
     initialize        : function (options) {
@@ -26,12 +26,27 @@
     App.router.navigate('authorposts', { trigger:true });
     },
 
-    tagspost        : function () {
-    new App.Views.TagsPost();
+    tagspostG        : function () {
+      var green= "green";
       // Instantiates Tags Posts
-    App.router.navigate('tagspost', { trigger: true });
+      new App.Views.TagsPost(green);
+
+    },
+
+    tagspostY        : function () {
+      var yellow= "yellow";
+      // Instantiates Tags Posts
+      new App.Views.TagsPost(yellow);
+
+    },
+    
+    tagspostO       : function () {
+      var orange= "orange";
+      // Instantiates Tags Posts
+      new App.Views.TagsPost(orange);
 
     }
+
 
   });
 
