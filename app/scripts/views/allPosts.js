@@ -8,7 +8,6 @@
 
     events: {
           'click li' : 'singlepost'
-
     },
 
     initialize: function (options) {
@@ -28,13 +27,13 @@
         // var user = App.user_collection.findWhere({ id : id });
         // console.log(user);
         // Renders All Posts List
-        console.log(x);
+        // console.log(x);
         self.$el.append(self.template(x.toJSON()));
       });
     }, /*end of render*/
 
     singlepost     : function () {
-      console.log(this);
+      // console.log(this);
     }
 
   }); // end of view
