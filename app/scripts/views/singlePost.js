@@ -8,7 +8,8 @@
 
     events: {
 
-      'click .edit' : 'edit',
+      'click .edit'   : 'edit',
+      'click .delete' : 'delete'
 
     },
 
@@ -31,6 +32,10 @@
 
 
     }, //end of edit
+
+    delete            : function () {
+
+    },
 
     loop              : function() {
 
