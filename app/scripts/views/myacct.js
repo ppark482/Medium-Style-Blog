@@ -15,16 +15,14 @@
       this.options = options;
       App.posts.on('sync', this, this);
       this.render();
-      console.log(options);
     }, // end of initialize
 
     render                  : function () {
       // Renders Nav Bar
       new App.Views.NavBar();
-      //Renders Footer
+      // Renders Footer
       new App.Views.Footer();
       // Render author page onto page
-      // console.log(this.options);
       this.$el.html(this.template(this.options.toJSON()));
     },
 
