@@ -28,6 +28,9 @@
       _.each(posts, function(x) {
         self.$el.prepend(self.template(x.toJSON()));
       });
+
+      new App.Views.EditPost(posts);
+
     }, /*end of render*/
 
     singlepost     : function () {
