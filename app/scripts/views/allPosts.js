@@ -27,26 +27,6 @@
       });
     }, /*end of render*/
 
-    // authorQuery: function () {
-    //   // Look for author names
-    //   var self = this;
-    //   // Query parse to find authors
-    //   // for each post on this list
-    //   var query = new Parse.Query(App.Models.Post);
-    //   var postUsers = App.posts.models;
-    //   _.each(postUsers, function(x) {
-    //     console.log(x.attributes.user.id);
-    //     query.equalTo('user', x.attributes.user.id);
-    //     query.find({
-    //       success: function(results) {
-    //         console.log(results);
-    //       }
-    //     }); // end query find
-    //   }); // end of each function
-    //   query.equalTo('user', App.user);
-    //   console.log(App.user)
-    // },
-
     singlepost     : function () {
       // console.log(this);
     }

@@ -11,7 +11,8 @@
       content: '',
       tag: '',
       user: '',
-      author: ''
+      author: '',
+      status: ''
     },
 
     initialize: function () {
