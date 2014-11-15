@@ -30,7 +30,7 @@
         tag: $('#addTag').val(),
         user: App.user,
         author: App.user.attributes.username,
-        status: published
+        status: 'published'
       });
       var access = new Parse.ACL(App.user);
       // Set read access to anyone

@@ -26,8 +26,8 @@
     }, // end of render
 
     home              : function() {
-
       new App.Views.Home({collection: App.posts, user: App.user});
+      App.router.navigate('', { trigger:true });
     },
 
     logName            : function() {
