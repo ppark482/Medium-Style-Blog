@@ -68,8 +68,6 @@
         $('button').remove('.signUp');
         $('button').remove('.login');
       }
-
-
       //end of if statement
     }// end of logstat
 

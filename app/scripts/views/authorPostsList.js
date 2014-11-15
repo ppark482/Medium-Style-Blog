@@ -15,12 +15,14 @@
       this.options = options;
       // Get our element on the page
       $('.authorPosts').html(this.$el);
+      // Render query
       this.postQuery();
     },
 
     render: function () {
 
     },
+
 
     postQuery: function () {
       var self = this;
@@ -29,7 +31,6 @@
       // for the passed user
       var query = new Parse.Query(App.Models.Post);
       query.equalTo('user', App.user);
-      // console.log(App.user);
       query.find({
         success: function(results) {
           _.each(results, function(x) {
@@ -38,7 +39,8 @@
           });
         }
       }); // end of query find
-    } // end of postQuery
+    }, // end of postQuery
+
 
   }); // end of view
 
