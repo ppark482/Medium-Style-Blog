@@ -23,8 +23,6 @@
     render            : function(options) {
       var self = this;
       var posts = this.options.model;
-      console.log(posts);
-      console.log(options);
       // Need to render selected author's name
       // Pull id from clicked name from footer bar
       self.$el.html(self.template(posts.toJSON()));

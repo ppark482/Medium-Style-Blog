@@ -22,6 +22,7 @@
       new App.Views.NavBar();
       // Renders Footer
       new App.Views.Footer();
+      new App.Views.FooterAuthors();
       // Render author page onto page
       this.$el.html(this.template(this.options.toJSON()));
       // Render this Author's Post view
