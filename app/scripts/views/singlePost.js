@@ -23,6 +23,7 @@
       new App.Views.NavBar();
       new App.Views.Footer();
       new App.Views.FooterAuthors();
+      console.log(this.model.attributes.user.id);
       this.$el.html(this.template(this.options.model.toJSON()));
     }, // end of render
 

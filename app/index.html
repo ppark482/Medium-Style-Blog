@@ -126,7 +126,9 @@
         <a id="" href="google.com"></a>
         <a id="tagForEdit" href="google.com"><%= tag %></a>
         <p id="contentForEdit"><%= content %></p>
-        <button class="edit">edit</button>
+        <% if(this.model.attributes.user.id === App.user.id) { %>
+          <button class="edit">edit</button>
+          <% } %>
         <button class="delete">delete</button>
       </div>
     </script>
