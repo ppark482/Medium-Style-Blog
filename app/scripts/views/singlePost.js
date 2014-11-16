@@ -24,6 +24,7 @@
       new App.Views.NavBar();
       new App.Views.Footer();
       new App.Views.FooterAuthors();
+<<<<<<< HEAD
       
       this.$el.html(this.template(this.options.post.toJSON()));
 
@@ -47,6 +48,10 @@
         }//end of each  success function
 
       });//end of comments query
+=======
+      console.log(this.model.attributes.user.id);
+      this.$el.html(this.template(this.options.model.toJSON()));
+>>>>>>> 888739558ac1c3fe3953c74f76afa2a07254b2da
     }, // end of render
 
     edit              : function() {

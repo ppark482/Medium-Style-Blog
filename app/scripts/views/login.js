@@ -28,7 +28,9 @@
         success: function (user) {
           console.log('Login successful');
           // Route back to home page
+          $('#upperRegion').empty();
           $('#middleRegion').empty();
+          new App.Views.Home();
           App.router.navigate('', {trigger: true});
         },
         error: function (user, error) {

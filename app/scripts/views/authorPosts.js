@@ -8,7 +8,6 @@
 
     events: {
 
-
     },
 
     initialize        : function(options) {
@@ -18,13 +17,14 @@
       new App.Views.NavBar();
       new App.Views.Footer();
       new App.Views.FooterAuthors();
-      this.render();
+      this.render(options);
     }, // end of initialize
 
     render            : function(options) {
       var self = this;
       var posts = this.options.model;
       console.log(posts);
+      console.log(options);
       // Need to render selected author's name
       // Pull id from clicked name from footer bar
       self.$el.html(self.template(posts.toJSON()));
