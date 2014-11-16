@@ -9,7 +9,8 @@
     events: {
 
       'click .edit'   : 'edit',
-      'click .delete' : 'delete'
+      'click .delete' : 'delete',
+      'click #addComment' : 'addComment'
 
     },
 
@@ -23,8 +24,34 @@
       new App.Views.NavBar();
       new App.Views.Footer();
       new App.Views.FooterAuthors();
+<<<<<<< HEAD
+      
+      this.$el.html(this.template(this.options.post.toJSON()));
+
+      // this.$el.html(this.template(this.options.model.toJSON()));
+
+
+      var commentTemplate = _.template($('#commentTemp').html());
+      var comments_query = new Parse.Query(App.Models.Comment);
+      comments_query.equalTo('parent', this.options.post);
+      comments_query.descending("createdAt");
+
+      this.$el.append('<h3>Comments</h3><ul class="comments"></ul>');
+
+      comments_query.find({
+        success: function (results) {
+
+          _.each(results, function(comment) {
+            $('ul.comments').append(commentTemplate(comment.toJSON()));
+          });//end of each loop
+
+        }//end of each  success function
+
+      });//end of comments query
+=======
       console.log(this.model.attributes.user.id);
       this.$el.html(this.template(this.options.model.toJSON()));
+>>>>>>> 888739558ac1c3fe3953c74f76afa2a07254b2da
     }, // end of render
 
     edit              : function() {
@@ -47,7 +74,34 @@
     loop              : function() {
 
 
-      }//end of loop
+    },//end of loop
+
+
+    addComment: function (e) {
+      e.preventDefault();
+
+      var self = this;
+      var current = this.options;
+
+      var comment = new App.Models.Comment({
+
+        commentText: $('#commentText').val(),
+        parent: this.options.post,
+        user: App.user,
+        author: App.user.attributes.name
+
+      });
+
+      comment.save(null, {
+        success: function(){
+          App.posts.add(comment);
+          App.comments.fetch().done(function(){
+            new App.Views.SinglePost(current);
+          });
+        }
+      });
+
+    }
 
   }); //end of single post view
 
