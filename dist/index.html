@@ -37,6 +37,7 @@
 
     <script type="text/template" id="navTemp"> <!-- Nav Bar Template -->
       <div class="navBar"> <!-- start navBar -->
+        <img class="logo" src="images/logoV.png">
         <h1><a href="#">Veggie Straws Blog</a></h1>
         <h4 class ="welcome">Welcome:<span class="guest"></span></h4>
         <% if(App.user !== null) { %>
@@ -96,8 +97,19 @@
       <div>
         <h2><%= username %>'s Information</h2>
         <button id="addPost">Add Post</button>
-        <ul id="yourPosts"></ul>
+        <div id="yourPosts"></div>
       </div>
+    </script>
+
+    <script type="text/template" id="myAcctPostsTemp"> <!-- Create List of Posts in My Account -->
+      <li class="postCard" id="<%= objectId %>" data="<%= objectId %>">
+        <a href="#/single/<%= objectId %>">
+          <div class="postHeader">
+            <h4><% if(status === "draft") { %><span style="color: red">DRAFT </span><% } %><%= title %></h4>
+          </div>
+          <span>Saved as: <%= tag %></span>
+        </a>
+      </li>
     </script>
 
     <script type="text/template" id="addPostTemp"> <!-- Create Add Post Template -->
@@ -139,7 +151,7 @@
 
     <script type="text/template" id="authorPostTemp"> <!-- Create Author Template -->
       <div>
-        <h2><%= username %><span>'s Posts</span></h2>
+        <h2>Posts by: <%= username %></h2>
         <div class="authorPosts"></div>
       </div>
     </script>
