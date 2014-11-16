@@ -25,13 +25,12 @@
   </head>
   <body>
     <div id="wrapper">
-      <h1>Veggie Straws Blog</h1>
       <div id="upperRegion"> <!-- start upperRegion -->
       </div> <!--end of upperRegion-->
       <div id="middleRegion">
       </div> <!--end of mid region-->
       <div id="lowerRegion">
-        <h3>Authors:</h3>
+        <h3>Bloggers:</h3>
         <div class="authorsList"></div>
         <div class="tagsList">
           <h3>Tags:</h3>
@@ -46,12 +45,16 @@
 
     <script type="text/template" id="navTemp"> <!-- Nav Bar Template -->
       <div class="navBar"> <!-- start navBar -->
-        <a class ="acctLink" href="#/myaccount">My Account</a>
-        <span class ="welcome">Welcome:<span class="guest"></span></span>
-        <button class="home">Home</button>
-        <button class="signUp">Sign Up</button>
-        <button class="login">Login</button>
-        <button class="logout">Log Out</button>
+        <h1><a href="#">Veggie Straws Blog</a></h1>
+        <h4 class ="welcome">Welcome:<span class="guest"></span></h4>
+        <% if(App.user !== null) { %>
+          <a class ="acctLink" href="#/myaccount">My Account</a>
+        <% } %>
+        <div class="buttonsRight">
+          <button class="signUp">Sign Up</button>
+          <button class="login">Login</button>
+          <button class="logout">Log Out</button>
+        </div>
       </div> <!-- end of navBar -->
     </script>
 
@@ -121,15 +124,15 @@
     </script>
 
     <script type="text/template" id="singlePostTemp"> <!-- Create Single Post Template -->
-      <div id="single">This is the single post
+      <div id="single">
         <h2 id="titleForEdit"><%= title %></h2> by <span class="ifAuthor"><%= author %></span>
         <a id="" href="google.com"></a>
         <a id="tagForEdit" href="google.com"><%= tag %></a>
         <p id="contentForEdit"><%= content %></p>
         <% if(App.user !== null && this.model.attributes.user.id === App.user.id) { %>
           <button class="edit">edit</button>
+          <button class="delete">delete</button>
         <% } %>
-        <button class="delete">delete</button>
       </div>
     </script>
 
@@ -140,7 +143,7 @@
       </div>
     </script>
 
-    <script type="text/template" id ="yourTemp"><!--Creat your posts template-->
+    <script type="text/template" id ="yourTemp"> <!--Create your posts template-->
       <div> Your Posts here!!
       <p>Filler Content:
       blah blah blah blah  blah blah blah blah  blah blah blah blah</p>

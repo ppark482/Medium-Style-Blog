@@ -19,9 +19,9 @@
       // Renders Nav Bar
       new App.Views.NavBar();
       // Render All Posts View
-      new App.Views.AllPosts(this.options.collection);
+      new App.Views.AllPosts({collection: App.posts, user: App.user});
       // Render Footer
-      new App.Views.Footer(this.options.user);
+      new App.Views.Footer({ user : App.user });
       // Render Footer Authors and Tags
       new App.Views.FooterAuthors();
     },

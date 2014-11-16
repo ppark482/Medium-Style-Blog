@@ -19,7 +19,7 @@
 
     render: function (options) {
       var self = this;
-      var posts = this.options.models;
+      var posts = App.posts.models;
       console.log(posts);
       // var published = posts.findWhere({ status : 'published' });
       // paul working here ++++++++++++++++++++++++++++++++++++++++++++++++++

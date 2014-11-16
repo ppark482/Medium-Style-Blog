@@ -10,7 +10,7 @@ $border: 1px solid HSLA(210, 12%, 17%, 1);
 
 // Custom Styles
 body {
-  background: #fafafa;
+  background: HSLA(46, 79%, 91%, 1);
   color: #333;
 }
 
@@ -18,19 +18,35 @@ p {
   font-family: $textfont;
 }
 
-h2, h3, h4, button, a,  {
+h1, h2, h3, h4, h5, h6, button, a,  {
   font-family: $headerfont;
+  color: HSLA(183, 24%, 48%, 1);
 }
+
+h1 {
+  font-size: 70px;  
+}
+
 li, a {
   list-style-type: none;
   text-decoration: none;
   font-family: $textfont;
+}
+a:hover {
+  color: HSLA(173, 24%, 55%, 1);
 }
 
 button {
   padding: 15px;
   border: 0;
   border-radius: 2px;
+  background-color: HSLA(207, 64%, 9%, 1);
+  &:hover {
+    background-color: HSLA(150, 18%, 81%, 1);
+    p {
+      background-color: HSLA(207, 64%, 9%, 1);
+    }
+  }
 }
 
 input {
@@ -50,7 +66,6 @@ form {
   width: 100%;
   padding: 15px;
   border-bottom: $border;
-  background-color: HSLA(210, 12%, 17%, 1);
   border-radius: 2px;
 
   .home{
@@ -73,7 +88,6 @@ form {
   @include span-columns(2.4);
   }
 } /*end of Upper Region*/
-
 /* Middle Region ++++++++++++++++++++++++++++++++++++++++++++++  */
 
 #middleRegion {
@@ -98,30 +112,24 @@ form {
 
 /* Lower Region ++++++++++++++++++++++++++++++++++++++++++++++  */
 #lowerRegion {
-  @include outer-container;
   border: $border;
   padding: 15px;
   background-color: HSLA(210, 12%, 17%, 1);
   color: white;
-  border-radius: 2px;
+  height: 100%;
   h3 {
     padding-left: 15px;
   }
   .authorsList {
-    @include span-columns(6);
     display: block;
     border: $border;
     height: 150px;
-    float: left;
   }
   .tagsList {
-    @include span-columns(6);
     display: block;
     border: $border;
     height: 150px;
-    float: right;
     h3 {
-      padding-left: 30px;
     }
   }
 } /*end of lower region*/

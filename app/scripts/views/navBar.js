@@ -31,8 +31,8 @@
     },
 
     logName            : function() {
-      if (App.user===null){
-        console.log("none");
+      if (App.user === null) {
+        $('.guest').html('Guest');
       } else {
       var a = App.user.getUsername();
       $('.guest').append(" "+ a + " ");
@@ -54,6 +54,7 @@
     logout            : function() {
         Parse.User.logOut();
         App.user = null;
+        new App.Views.NavBar();
         App.router.navigate('', {trigger : true} );
         console.log('logged out');
     },
