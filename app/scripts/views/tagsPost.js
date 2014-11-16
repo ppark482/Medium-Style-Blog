@@ -22,6 +22,12 @@
 
     render                    : function(options) {
       this.$el.html(this.template);
+
+      new App.Views.NavBar();
+      new App.Views.Footer();
+      new App.Views.FooterAuthors();
+
+
     }, // end of render
 
     postQuery                 : function(options) {
