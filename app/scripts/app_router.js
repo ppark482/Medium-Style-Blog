@@ -62,6 +62,16 @@
     green               : function() {
       var green = 'green';
       new App.Views.TagsPost(green);
+    },
+
+    yellow               : function() {
+      var yellow = 'yellow';
+      new App.Views.TagsPost(yellow);
+    },
+
+    orange               : function() {
+      var orange = 'orange';
+      new App.Views.TagsPost(orange);
     }
 
    }); // end of router

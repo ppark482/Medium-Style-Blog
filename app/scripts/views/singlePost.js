@@ -24,9 +24,7 @@
       new App.Views.NavBar();
       new App.Views.Footer();
       new App.Views.FooterAuthors();
-      this.$el.html(this.template(this.options.post.toJSON()));
-
-      // this.$el.html(this.template(this.options.model.toJSON()));
+      this.$el.html(this.template(this.options.model.toJSON()));
 
 
       var commentTemplate = _.template($('#commentTemp').html());

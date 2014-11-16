@@ -29,7 +29,6 @@
         // console.log(x);
         self.$el.append(self.template(x.toJSON()));
       });
-      console.log(this.el);
     }
 
 

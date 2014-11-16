@@ -12,34 +12,32 @@
 
     initialize                : function(options) {
       this.options = options;
-      this.render(options);
-    }, // end of initialize
-
-    render                    : function(options) {
-      console.log(options);
-      this.$el.html(this.template);
       new App.Views.NavBar();
       new App.Views.Footer();
       new App.Views.FooterAuthors();
+      $('#middleRegion').empty();
+      this.render(options);
+      this.postQuery(options);
+    }, // end of initialize
 
+    render                    : function(options) {
+      this.$el.html(this.template);
     }, // end of render
 
-    greenpost                 : function() {
+    postQuery                 : function(options) {
+      var self = this;
+      var query = new Parse.Query(App.Models.Post);
+      console.log(options);
+      query.equalTo('tag', options);
+      query.find({
+        success: function(results) {
+          _.each(results, function(x) {
+            self.$el.html(self.template(x.toJSON()));
+          });
+        }
+      }); // end of find
+    } // end of query
 
-    },
+  }); // end of view
 
-    yellowpost                 : function() {
-
-    },
-
-    orangepost                 : function() {
-
-    },
-
-
-
-  });
-
-
-
-}());
+}()); // end of IIF

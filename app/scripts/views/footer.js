@@ -23,28 +23,22 @@
 
     authorposts        : function () {
       // Instantiates Create Acct Form
-    App.router.navigate('authorposts', { trigger:true });
+      App.router.navigate('authorposts', { trigger:true });
     },
 
     tagspostG        : function () {
-      var green= "green";
       // Instantiates Tags Posts
-      new App.Views.TagsPost(green);
-
+      App.router.navigate('green', { trigger:true });
     },
 
     tagspostY        : function () {
-      var yellow= "yellow";
       // Instantiates Tags Posts
-      new App.Views.TagsPost(yellow);
-
+      App.router.navigate('green', { trigger:true });
     },
-    
-    tagspostO       : function () {
-      var orange= "orange";
-      // Instantiates Tags Posts
-      new App.Views.TagsPost(orange);
 
+    tagspostO       : function () {
+      // Instantiates Tags Posts
+      App.router.navigate('green', { trigger:true });
     }
 
 
