@@ -18,7 +18,7 @@
     render                    : function(options) {
       console.log(options);
       this.$el.html(this.template);
-      new App.Views.NavBar();
+      new App.Views.NavBar(); 
       new App.Views.Footer();
       new App.Views.FooterAuthors();
 

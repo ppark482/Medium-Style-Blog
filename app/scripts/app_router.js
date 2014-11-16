@@ -56,7 +56,7 @@
 
     singlePost          : function(postId) {
       var x = App.posts.get({id: postId});
-      new App.Views.SinglePost({model: x});
+      new App.Views.SinglePost({model: x, comments: App.comments});
     },
 
     green               : function() {

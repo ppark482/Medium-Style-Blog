@@ -10,7 +10,7 @@
 
       'click .edit'   : 'edit',
       'click .delete' : 'delete',
-      'click #addComment' : 'addComment'
+      'submit #addComment' : 'addComment'
 
     },
 
@@ -24,14 +24,19 @@
       new App.Views.NavBar();
       new App.Views.Footer();
       new App.Views.FooterAuthors();
-      this.$el.html(this.template(this.options.post.toJSON()));
+
+
+
 
       this.$el.html(this.template(this.options.model.toJSON()));
 
 
+
       var commentTemplate = _.template($('#commentTemp').html());
       var comments_query = new Parse.Query(App.Models.Comment);
-      comments_query.equalTo('parent', this.options.post);
+      comments_query.equalTo('parent', App.posts.model.attributes);
+      console.log(App.posts.model.attributes);
+      // console.log(this.options.model.attributtes);
       comments_query.descending("createdAt");
 
       this.$el.append('<h3>Comments</h3><ul class="comments"></ul>');
