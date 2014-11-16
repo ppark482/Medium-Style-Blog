@@ -25,6 +25,7 @@ h1, h2, h3, h4, h5, h6, button, a,  {
 
 h1 {
   font-size: 70px;
+  float:left;
 }
 
 li, a {
@@ -90,6 +91,13 @@ form {
 
   .logout {
   @include span-columns(2.4);
+
+  }
+
+  .logo{
+    height:170px;
+    width:170px;
+    float:left;
   }
 } /*end of Upper Region*/
 /* Middle Region ++++++++++++++++++++++++++++++++++++++++++++++  */
