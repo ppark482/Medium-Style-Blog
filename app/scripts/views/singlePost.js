@@ -25,9 +25,6 @@
       new App.Views.Footer();
       new App.Views.FooterAuthors();
 
-
-
-
       this.$el.html(this.template(this.options.model.toJSON()));
 
 

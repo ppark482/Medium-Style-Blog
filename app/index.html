@@ -130,7 +130,6 @@
         <a id="tagForEdit" href="google.com"><%= tag %></a>
         <p id="contentForEdit"><%= content %></p>
 
-
          <% if(App.user != null){ %>
            <form id="addComment">
            <textarea id="commentText" placeholder="Add Your Comments"></textarea>
@@ -162,14 +161,9 @@
       </div>
     </script>
 
-
-
     <script type="text/template" id="authorPostsListsTemp"> <!-- Create Author Lists Template -->
       <li><h4><%= title %></h4> <p><%= content %><p></li>
     </script>
-
-
-
 
     <script type="text/template" id="editTemp"> <!-- Create Edit Post Template -->
       <div id="editPost">
@@ -187,16 +181,21 @@
     </script>
 
     <script type="text/template" id="tagViewTemp"> <!-- Create Tags Posts View -->
-      <div>This is the tags view
-
-      <button>HEY!!!</button>
-      </div>
+      <% if (status === 'published') { %>
+      <li class="postCard" id="<%= objectId %>" data="<%= objectId %>">
+        <a href="#/single/<%= objectId %>">
+          <div class="postHeader"><h4><%= title %></h4>by: <%= author %> </span></div>
+          <span>Saved as: <%= tag %></span>
+        </a>
+      </li>
+      <% } %>
     </script>
 
     <script type="text/template" id="commentTemp">
       <li><%= commentText %>
       by <a href="/#author/<%= user.objectId %>"><%= author %></a></li>
     </script>
+
     <!-- build:js scripts/vendor.js -->
     <!-- bower:js -->
     <script src="../bower_components/jquery/dist/jquery.js"></script>

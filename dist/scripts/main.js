@@ -25,9 +25,9 @@ window.App = {};
       // Renders Nav Bar
       new App.Views.NavBar();
       // Render All Posts View
-      new App.Views.AllPosts(this.options.collection);
+      new App.Views.AllPosts({collection: App.posts, user: App.user});
       // Render Footer
-      new App.Views.Footer(this.options.user);
+      new App.Views.Footer({ user : App.user });
       // Render Footer Authors and Tags
       new App.Views.FooterAuthors();
     },
@@ -74,6 +74,21 @@ window.App = {};
 
 (function() {
 
+  App.Models.Comment = Parse.Object.extend({
+
+    className: 'Comment',
+
+    idAttribute: 'objectId',
+
+    defaults: {
+      commentText: '',
+      user: '',
+      author: ''
+    }
+
+  });
+
+
 
 
 }()); // end of IIF
@@ -103,28 +118,22 @@ window.App = {};
 
     authorposts        : function () {
       // Instantiates Create Acct Form
-    App.router.navigate('authorposts', { trigger:true });
+      App.router.navigate('authorposts', { trigger:true });
     },
 
     tagspostG        : function () {
-      var green= "green";
       // Instantiates Tags Posts
-      new App.Views.TagsPost(green);
-
+      App.router.navigate('green', { trigger:true });
     },
 
     tagspostY        : function () {
-      var yellow= "yellow";
       // Instantiates Tags Posts
-      new App.Views.TagsPost(yellow);
-
+      App.router.navigate('green', { trigger:true });
     },
-    
-    tagspostO       : function () {
-      var orange= "orange";
-      // Instantiates Tags Posts
-      new App.Views.TagsPost(orange);
 
+    tagspostO       : function () {
+      // Instantiates Tags Posts
+      App.router.navigate('green', { trigger:true });
     }
 
 
@@ -163,7 +172,6 @@ window.App = {};
         // console.log(x);
         self.$el.append(self.template(x.toJSON()));
       });
-      console.log(this.el);
     }
 
 
@@ -271,7 +279,7 @@ window.App = {};
 
     render: function (options) {
       var self = this;
-      var posts = this.options.models;
+      var posts = App.posts.models;
       console.log(posts);
       // var published = posts.findWhere({ status : 'published' });
       // paul working here ++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -280,8 +288,6 @@ window.App = {};
       _.each(posts, function(x) {
         self.$el.prepend(self.template(x.toJSON()));
       });
-
-      new App.Views.EditPost(posts);
 
     }, /*end of render*/
 
@@ -303,7 +309,6 @@ window.App = {};
 
     events: {
 
-
     },
 
     initialize        : function(options) {
@@ -313,13 +318,14 @@ window.App = {};
       new App.Views.NavBar();
       new App.Views.Footer();
       new App.Views.FooterAuthors();
-      this.render();
+      this.render(options);
     }, // end of initialize
 
     render            : function(options) {
       var self = this;
       var posts = this.options.model;
       console.log(posts);
+      console.log(options);
       // Need to render selected author's name
       // Pull id from clicked name from footer bar
       self.$el.html(self.template(posts.toJSON()));
@@ -348,11 +354,9 @@ window.App = {};
       // Get our element on the page
       $('.authorPosts').html(this.$el);
       // Render query
-      this.postQuery();
+      this.postQuery(options);
     },
-
     render: function () {
-
     },
 
 
@@ -361,9 +365,9 @@ window.App = {};
       // console.log(App.posts.models[0].attributes.user.id);
       // Query parse to find posts
       // for the passed user
-      console.log(options);
+      console.log(options.model);
       var query = new Parse.Query(App.Models.Post);
-      query.equalTo('user', App.user);
+      query.equalTo('user', options.model);
       query.find({
         success: function(results) {
           _.each(results, function(x) {
@@ -493,62 +497,69 @@ window.App = {};
   /* Renders Home View */
   App.Views.NavBar = Parse.View.extend({
 
-    el                : '#upperRegion',
+    el                      : '#upperRegion',
 
-    template          : _.template($('#navTemp').html()),
+    template                : _.template($('#navTemp').html()),
 
     events: {
-      'click .home'   : 'home',
-      'click .signUp' : 'signupForm',
-      'click .login'  : 'loginForm',
-      'click .logout' : 'logout'
+      'click .home'         : 'home',
+      'click .signUp'       : 'signupForm',
+      'click .acctLink'     : 'toMyAcct',
+      'click .login'        : 'loginForm',
+      'click .logout'       : 'logout'
     }, // end of events
 
-    initialize        : function () {
+    initialize              : function () {
       this.render();
     }, // end of initialize
 
-    render            : function () {
+    render                  : function () {
       // Renders Nav Bar
       this.$el.html(this.template);
       this.logName();
       this.logstat();
     }, // end of render
 
-    home              : function() {
+    home                    : function() {
       new App.Views.Home({collection: App.posts, user: App.user});
       App.router.navigate('', { trigger:true });
     },
 
-    logName            : function() {
-      if (App.user===null){
-        console.log("none");
+    logName                 : function() {
+      if (App.user === null) {
+        $('.guest').html('Guest');
       } else {
       var a = App.user.getUsername();
       $('.guest').append(" "+ a + " ");
       }//end if/else statment
     },
 
-    signupForm        : function() {
+    signupForm              : function() {
       // On click to signup
       // Routes to 'create' page
       App.router.navigate('create', { trigger: true });
     }, // end of signupForm
 
-    loginForm         : function() {
+    toMyAcct                : function () {
+      // Navigate to my account
+      App.router.navigate('myaccount', { trigger: true });
+    },
+
+    loginForm               : function() {
       // On click to login
       // Routes to 'login' page
       App.router.navigate('login', { trigger: true });
     }, // end of loginForm
 
-    logout            : function() {
+    logout                  : function() {
         Parse.User.logOut();
         App.user = null;
+        new App.Views.NavBar();
         App.router.navigate('', {trigger : true} );
         console.log('logged out');
     },
 
-    logstat            : function() {
+    logstat                 : function() {
       if (App.user===null) {
         $('button').remove('.logout');
         $('span').remove('.guest');
@@ -558,7 +569,7 @@ window.App = {};
         $('button').remove('.signUp');
         $('button').remove('.login');
       }
-      //end of if statement
+      // end of if statement
     }// end of logstat
 
   }); // end of view
@@ -595,7 +606,9 @@ window.App = {};
         success: function (user) {
           console.log('Login successful');
           // Route back to home page
+          $('#upperRegion').empty();
           $('#middleRegion').empty();
+          new App.Views.Home();
           App.router.navigate('', {trigger: true});
         },
         error: function (user, error) {
@@ -639,7 +652,7 @@ window.App = {};
     addPost                 : function () {
       // Navigate to Add Post
       App.router.navigate('addpost', { trigger: true});
-    }
+    } // end of addPost
 
 
   }); // end of view
@@ -658,7 +671,8 @@ window.App = {};
     events: {
 
       'click .edit'   : 'edit',
-      'click .delete' : 'delete'
+      'click .delete' : 'delete',
+      'submit #addComment' : 'addComment'
 
     },
 
@@ -672,7 +686,34 @@ window.App = {};
       new App.Views.NavBar();
       new App.Views.Footer();
       new App.Views.FooterAuthors();
+
       this.$el.html(this.template(this.options.model.toJSON()));
+
+
+
+      var commentTemplate = _.template($('#commentTemp').html());
+      var comments_query = new Parse.Query(App.Models.Comment);
+      comments_query.equalTo('parent', App.posts.model.attributes);
+      console.log(App.posts.model.attributes);
+      // console.log(this.options.model.attributtes);
+      comments_query.descending("createdAt");
+
+      this.$el.append('<h3>Comments</h3><ul class="comments"></ul>');
+
+      comments_query.find({
+        success: function (results) {
+
+          _.each(results, function(comment) {
+            $('ul.comments').append(commentTemplate(comment.toJSON()));
+          });//end of each loop
+
+        }//end of each  success function
+
+      });//end of comments query
+
+      console.log(this.model.attributes.user.id);
+      this.$el.html(this.template(this.options.model.toJSON()));
+
     }, // end of render
 
     edit              : function() {
@@ -695,7 +736,34 @@ window.App = {};
     loop              : function() {
 
 
-      }//end of loop
+    },//end of loop
+
+
+    addComment: function (e) {
+      e.preventDefault();
+
+      var self = this;
+      var current = this.options;
+
+      var comment = new App.Models.Comment({
+
+        commentText: $('#commentText').val(),
+        parent: this.options.post,
+        user: App.user,
+        author: App.user.attributes.name
+
+      });
+
+      comment.save(null, {
+        success: function(){
+          App.posts.add(comment);
+          App.comments.fetch().done(function(){
+            new App.Views.SinglePost(current);
+          });
+        }
+      });
+
+    }
 
   }); //end of single post view
 
@@ -717,31 +785,47 @@ window.App = {};
 
     initialize                : function(options) {
       this.options = options;
+      new App.Views.NavBar();
+      new App.Views.Footer();
+      new App.Views.FooterAuthors();
+      $('#middleRegion').empty();
       this.render(options);
+      this.postQuery(options);
     }, // end of initialize
 
     render                    : function(options) {
-      console.log(options);
       this.$el.html(this.template);
+
       new App.Views.NavBar();
       new App.Views.Footer();
       new App.Views.FooterAuthors();
 
+
     }, // end of render
 
-    greenpost                 : function() {
+    postQuery                 : function(options) {
+      var self = this;
+      var query = new Parse.Query(App.Models.Post);
+      console.log(options);
+      query.equalTo('tag', options);
+      query.find({
+        success: function(results) {
+          _.each(results, function(x) {
+            self.$el.html(self.template(x.toJSON()));
+          });
+        }
+      }); // end of find
+    } // end of query
 
-    },
+  }); // end of view
 
-    yellowpost                 : function() {
+}()); // end of IIF
 
-    },
+(function () {
 
-    orangepost                 : function() {
+  App.Collections.Comments = Parse.Collection.extend({
 
-    },
-
-
+    model: App.Models.Comment
 
   });
 
@@ -827,12 +911,22 @@ window.App = {};
 
     singlePost          : function(postId) {
       var x = App.posts.get({id: postId});
-      new App.Views.SinglePost({model: x});
+      new App.Views.SinglePost({model: x, comments: App.comments});
     },
 
     green               : function() {
       var green = 'green';
       new App.Views.TagsPost(green);
+    },
+
+    yellow               : function() {
+      var yellow = 'yellow';
+      new App.Views.TagsPost(yellow);
+    },
+
+    orange               : function() {
+      var orange = 'orange';
+      new App.Views.TagsPost(orange);
     }
 
    }); // end of router
@@ -841,6 +935,7 @@ window.App = {};
 Parse.initialize("b9ihleuYJm7Z20BGiIeVfE3XHmgNZoGP0P6tWs7A", "c3b6HWtmmYpCntKDKl85BZAt1VLUvHqeXTEVnkEk");
 
 (function() {
+  App.comments = new App.Collections.Comments();
 
   // Create object to store current user
   App.user = Parse.User.current();
@@ -848,11 +943,16 @@ Parse.initialize("b9ihleuYJm7Z20BGiIeVfE3XHmgNZoGP0P6tWs7A", "c3b6HWtmmYpCntKDKl
   App.posts = new App.Collections.Posts();
   // Create instance of user collection
   App.user_collection = new App.Collections.Users();
+
   App.user_collection.fetch().done( function() {
+
     App.posts.fetch().done( function () {
+
+      App.comments.fetch().done(function(){
       // Instantiate the router
       App.router = new App.Routers.AppRouter();
       Parse.history.start();
+    });
     });
   });
 
