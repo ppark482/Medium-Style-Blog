@@ -16,11 +16,9 @@
       // Get our element on the page
       $('.authorPosts').html(this.$el);
       // Render query
-      this.postQuery();
+      this.postQuery(options);
     },
-
     render: function () {
-
     },
 
 
@@ -29,9 +27,9 @@
       // console.log(App.posts.models[0].attributes.user.id);
       // Query parse to find posts
       // for the passed user
-      console.log(options);
+      console.log(options.model);
       var query = new Parse.Query(App.Models.Post);
-      query.equalTo('user', App.user);
+      query.equalTo('user', options.model);
       query.find({
         success: function(results) {
           _.each(results, function(x) {

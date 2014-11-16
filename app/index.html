@@ -47,7 +47,7 @@
     <script type="text/template" id="navTemp"> <!-- Nav Bar Template -->
       <div class="navBar"> <!-- start navBar -->
         <a class ="acctLink" href="#/myaccount">My Account</a>
-        <span class =welcome>Welcome:<span class="guest"></span></span>
+        <span class ="welcome">Welcome:<span class="guest"></span></span>
         <button class="home">Home</button>
         <button class="signUp">Sign Up</button>
         <button class="login">Login</button>
@@ -126,9 +126,9 @@
         <a id="" href="google.com"></a>
         <a id="tagForEdit" href="google.com"><%= tag %></a>
         <p id="contentForEdit"><%= content %></p>
-        <% if(this.model.attributes.user.id === App.user.id) { %>
+        <% if(App.user !== null && this.model.attributes.user.id === App.user.id) { %>
           <button class="edit">edit</button>
-          <% } %>
+        <% } %>
         <button class="delete">delete</button>
       </div>
     </script>
