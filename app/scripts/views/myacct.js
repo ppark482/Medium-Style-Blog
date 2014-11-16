@@ -29,7 +29,7 @@
     addPost                 : function () {
       // Navigate to Add Post
       App.router.navigate('addpost', { trigger: true});
-    }
+    } // end of addPost
 
 
   }); // end of view

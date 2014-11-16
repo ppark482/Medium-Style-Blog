@@ -46,6 +46,10 @@
         }//end of each  success function
 
       });//end of comments query
+
+      console.log(this.model.attributes.user.id);
+      this.$el.html(this.template(this.options.model.toJSON()));
+
     }, // end of render
 
     edit              : function() {
