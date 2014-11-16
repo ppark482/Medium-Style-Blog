@@ -20,11 +20,6 @@
     render: function (options) {
       var self = this;
       var posts = App.posts.models;
-      console.log(posts);
-      // var published = posts.findWhere({ status : 'published' });
-      // paul working here ++++++++++++++++++++++++++++++++++++++++++++++++++
-      // console.log(published);
-      // console.log(App.user_collection.models);
       _.each(posts, function(x) {
         self.$el.prepend(self.template(x.toJSON()));
       });

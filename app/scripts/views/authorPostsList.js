@@ -14,7 +14,7 @@
     initialize: function (options) {
       this.options = options;
       // Get our element on the page
-      $('.authorPosts').html(this.$el);
+      $('#authorPosts').html(this.$el);
       // Render query
       this.postQuery(options);
     },

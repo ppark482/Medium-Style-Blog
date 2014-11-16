@@ -104,8 +104,17 @@
       <div>
         <h2><%= username %>'s Information</h2>
         <button id="addPost">Add Post</button>
-        <ul id="yourPosts"></ul>
+        <div id="yourPosts"></div>
       </div>
+    </script>
+
+    <script type="text/template" id="myAcctPostsTemp"> <!-- Create List of Posts in My Account -->
+      <li class="postCard" id="<%= objectId %>" data="<%= objectId %>">
+        <a href="#/single/<%= objectId %>">
+          <div class="postHeader"><h4><%= title %></h4></div>
+          <span>Saved as: <%= tag %></span>
+        </a>
+      </li>
     </script>
 
     <script type="text/template" id="addPostTemp"> <!-- Create Add Post Template -->
@@ -222,6 +231,7 @@
         <script src="scripts/views/navBar.js"></script>
         <script src="scripts/views/login.js"></script>
         <script src="scripts/views/myacct.js"></script>
+        <script src="scripts/views/myacctPosts.js"></script>
         <script src="scripts/views/singlePost.js"></script>
         <script src="scripts/views/tagsPost.js"></script>
         <script src="scripts/collections/comments_collection.js"></script>

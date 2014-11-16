@@ -14,16 +14,18 @@
       // Retrieves passed in parameter from router
       this.options = options;
       App.posts.on('sync', this, this);
-      this.render();
+      this.render(options);
     }, // end of initialize
 
-    render                  : function () {
+    render                  : function (options) {
       // Renders Nav Bar
       new App.Views.NavBar();
       // Renders Footer
       new App.Views.Footer();
       // Render author page onto page
       this.$el.html(this.template(this.options.toJSON()));
+      // Render this Author's Post view
+      new App.Views.MyAcctPosts(options);
     },
 
     addPost                 : function () {
