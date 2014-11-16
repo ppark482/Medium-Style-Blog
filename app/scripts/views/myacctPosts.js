@@ -25,8 +25,6 @@
       _.each(App.posts.models, function (x) {
         self.$el.prepend(self.template(x.toJSON()));
       });
-      // Render author page onto page
-      // this.$el.html(this.template(.toJSON()));
     },
 
     postQuery               : function (user) {
