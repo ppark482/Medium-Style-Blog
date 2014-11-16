@@ -111,7 +111,9 @@
     <script type="text/template" id="myAcctPostsTemp"> <!-- Create List of Posts in My Account -->
       <li class="postCard" id="<%= objectId %>" data="<%= objectId %>">
         <a href="#/single/<%= objectId %>">
-          <div class="postHeader"><h4><%= title %></h4></div>
+          <div class="postHeader">
+            <h4><% if(status === "draft") { %><span style="color: red">DRAFT </span><% } %><%= title %></h4>
+          </div>
           <span>Saved as: <%= tag %></span>
         </a>
       </li>

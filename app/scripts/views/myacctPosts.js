@@ -36,12 +36,9 @@
       query.find({
         success: function (results) {
           _.each(results, function (x) {
-            console.log(x);
           });
         }
       });
-
-      // query.equalTo()
     }
 
   }); // end of view
