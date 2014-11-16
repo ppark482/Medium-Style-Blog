@@ -14,8 +14,8 @@
       // Retrieves passed in parameter from router
       App.posts.on('sync', this, this);
       this.render();
-      this.postQuery(user);
       // Get our element on the page
+      this.postQuery(user);
       $('#yourPosts').html(this.$el);
     }, // end of initialize
 
@@ -30,16 +30,21 @@
     },
 
     postQuery               : function (user) {
+      var self = this;
+      self.$el.empty();
       var username = user.attributes.username;
+      console.log(username);
       query = new Parse.Query(App.Models.Post);
-      query.equalTo('author', user);
+      query.equalTo('author', username);
       query.find({
         success: function (results) {
+          console.log(results);
           _.each(results, function (x) {
+            self.$el.append(self.template(x.toJSON()));
           });
         }
       });
-    }
+    } // end of query
 
   }); // end of view
 

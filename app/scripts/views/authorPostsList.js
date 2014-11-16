@@ -36,8 +36,8 @@
             self.$el.append(self.template(x.toJSON()));
           });
         }
-      }); // end of query find
-    } // end of postQuery
+      });
+    } // end of query find
 
   }); // end of view
 
