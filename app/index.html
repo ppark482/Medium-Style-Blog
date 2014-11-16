@@ -128,6 +128,12 @@
         <p id="contentForEdit"><%= content %></p>
         <button class="edit">edit</button>
         <button class="delete">delete</button>
+         <% if(App.user != null){ %>
+           <form id="addComment">
+           <textarea id="commentText" placeholder="Add Your Comments"></textarea>
+           <button>Add Comment</button>
+           </form>
+           <% } %>
       </div>
     </script>
 
@@ -178,6 +184,10 @@
       </div>
     </script>
 
+    <script type="text/template" id="commentTemp">
+      <li><%= commentText %>
+      by <a href="/#author/<%= user.objectId %>"><%= author %></a></li>
+    </script>
     <!-- build:js scripts/vendor.js -->
     <!-- bower:js -->
     <script src="../bower_components/jquery/dist/jquery.js"></script>
@@ -206,6 +216,7 @@
         <script src="scripts/views/myacct.js"></script>
         <script src="scripts/views/singlePost.js"></script>
         <script src="scripts/views/tagsPost.js"></script>
+        <script src="scripts/collections/comments_collection.js"></script>
         <script src="scripts/collections/posts_collection.js"></script>
         <script src="scripts/collections/users_collection.js"></script>
         <script src="scripts/app_router.js"></script>
