@@ -2,7 +2,7 @@
 
   App.Views.SinglePost = Parse.View.extend({
 
-    // el                : '#middleRegion',
+    el                : '#middleRegion',
 
     template          : _.template($('#singlePostTemp').html()),
 
@@ -18,7 +18,6 @@
       this.options = options;
       this.render(options);
       var modelID = options.model.id;
-      $('#middleRegion').html(this.$el);
     }, // end of initialize
 
     render            : function (options) {
