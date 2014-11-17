@@ -1,8 +1,8 @@
 (function () {
 
-  App.Views.SinglePost=Parse.View.extend({
+  App.Views.SinglePost = Parse.View.extend({
 
-    el                : '#middleRegion',
+    // el                : '#middleRegion',
 
     template          : _.template($('#singlePostTemp').html()),
 
@@ -16,23 +16,29 @@
 
     initialize        : function (options) {
       this.options = options;
-      this.render();
+      this.render(options);
       var modelID = options.model.id;
+      $('#middleRegion').html(this.$el);
     }, // end of initialize
 
     render            : function (options) {
+      $('#middleRegion').empty();
       new App.Views.NavBar();
       new App.Views.Footer();
       new App.Views.FooterAuthors();
 
       this.$el.html(this.template(this.options.model.toJSON()));
 
+      console.log(this.options.model);
+
 
 
       var commentTemplate = _.template($('#commentTemp').html());
       var comments_query = new Parse.Query(App.Models.Comment);
-      comments_query.equalTo('parent', App.posts.model.attributes);
-      console.log(App.posts.model.attributes);
+      comments_query.equalTo('parent', this.options.model);
+
+      console.log(this.options.model);
+
       // console.log(this.options.model.attributtes);
       comments_query.descending("createdAt");
 
@@ -42,6 +48,7 @@
         success: function (results) {
 
           _.each(results, function(comment) {
+            console.log(comment);
             $('ul.comments').append(commentTemplate(comment.toJSON()));
           });//end of each loop
 
@@ -86,9 +93,9 @@
       var comment = new App.Models.Comment({
 
         commentText: $('#commentText').val(),
-        parent: this.options.post,
+        parent: this.options.model,
         user: App.user,
-        author: App.user.attributes.name
+        author: App.user.attributes.username
 
       });
 
