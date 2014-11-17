@@ -708,7 +708,7 @@ window.App = {};
 
 (function () {
 
-  App.Views.SinglePost=Parse.View.extend({
+  App.Views.SinglePost = Parse.View.extend({
 
     el                : '#middleRegion',
 
@@ -724,23 +724,28 @@ window.App = {};
 
     initialize        : function (options) {
       this.options = options;
-      this.render();
+      this.render(options);
       var modelID = options.model.id;
     }, // end of initialize
 
     render            : function (options) {
+      $('#middleRegion').empty();
       new App.Views.NavBar();
       new App.Views.Footer();
       new App.Views.FooterAuthors();
 
       this.$el.html(this.template(this.options.model.toJSON()));
 
+      console.log(this.options.model);
+
 
 
       var commentTemplate = _.template($('#commentTemp').html());
       var comments_query = new Parse.Query(App.Models.Comment);
-      comments_query.equalTo('parent', App.posts.model.attributes);
-      console.log(App.posts.model.attributes);
+      comments_query.equalTo('parent', this.options.model);
+
+      console.log(this.options.model);
+
       // console.log(this.options.model.attributtes);
       comments_query.descending("createdAt");
 
@@ -750,6 +755,7 @@ window.App = {};
         success: function (results) {
 
           _.each(results, function(comment) {
+            console.log(comment);
             $('ul.comments').append(commentTemplate(comment.toJSON()));
           });//end of each loop
 
@@ -794,9 +800,9 @@ window.App = {};
       var comment = new App.Models.Comment({
 
         commentText: $('#commentText').val(),
-        parent: this.options.post,
+        parent: this.options.model,
         user: App.user,
-        author: App.user.attributes.name
+        author: App.user.attributes.username
 
       });
 
@@ -981,7 +987,7 @@ window.App = {};
 Parse.initialize("b9ihleuYJm7Z20BGiIeVfE3XHmgNZoGP0P6tWs7A", "c3b6HWtmmYpCntKDKl85BZAt1VLUvHqeXTEVnkEk");
 
 (function() {
-  App.comments = new App.Collections.Comments();
+
 
   // Create object to store current user
   App.user = Parse.User.current();
@@ -989,6 +995,8 @@ Parse.initialize("b9ihleuYJm7Z20BGiIeVfE3XHmgNZoGP0P6tWs7A", "c3b6HWtmmYpCntKDKl
   App.posts = new App.Collections.Posts();
   // Create instance of user collection
   App.user_collection = new App.Collections.Users();
+
+  App.comments = new App.Collections.Comments();
 
   App.user_collection.fetch().done( function() {
 
