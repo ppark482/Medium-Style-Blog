@@ -21,6 +21,7 @@
     }, // end of render
 
     login                    : function () {
+      event.preventDefault();
       // Log User into account
       var username = $('#loginUsername').val();
       var password = $('#loginPassword').val();
