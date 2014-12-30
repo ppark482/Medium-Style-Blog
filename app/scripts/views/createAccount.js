@@ -23,21 +23,22 @@
       e.preventDefault();
       // New User Creation
       // Send New User to Server
-      var user = new Parse.User({
-        username: $('#createUsername').val(),
-        password: $('#createPassword').val()
-      });
+      var username = $('#createUsername').val();
+      var password = $('#createPassword').val();
+      var user = new Parse.User();
+      user.set('username', username);
+      user.set('password', password);
       user.signUp(null, {
-        success: function(user) {
-          console.log('Account created');
-          $('#middleRegion').empty();
-          App.router.navigate('', { trigger: true });
+        success: function (user) {
+          // console.log('Account created');
+          // App.router.navigate('', { trigger: true });
         },
-        error: function(user, error) {
+        error: function (user, error) {
           alert('Error');
-          App.router.navigate('', { trigger: true });
+          // App.router.navigate('', { trigger: true });
         }
       }); // end of user.signup
+      App.router.navigate('', { trigger: true });
     } // end of accountCreation
 
   }); // end of view
